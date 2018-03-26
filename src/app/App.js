@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar'
+import HomeContainer from './home/HomeContainer'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -9,7 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <NavBar active="home" />
+          <div>
+            <HomeContainer>OK</HomeContainer>
+          </div>
         </Router>
       </div>
     );
