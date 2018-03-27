@@ -11,7 +11,11 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <HomeContainer>OK</HomeContainer>
+            <HomeContainer>
+              <div className="content">
+                Hello
+              </div>
+            </HomeContainer>
           </div>
         </Router>
       </div>

@@ -26,3 +26,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#logo {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 600;
+	line-height: 15px;
+  color: #365899;
+}
+
+.content {
+  padding: 100em;
+}

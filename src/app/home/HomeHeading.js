@@ -6,10 +6,10 @@ const HomeHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='Imagine-a-Company'
+      content='Find, Fund and Have Fun'
       inverted
       style={{
-        fontSize: mobile ? '2em' : '4em',
+        fontSize: mobile ? '1em' : '3em',
         fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em'
@@ -17,17 +17,17 @@ const HomeHeading = ({ mobile }) => (
     />
     <Header
       as='h2'
-      content='Do whatever you want when you want to.'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
         fontWeight: 'normal',
         marginTop: mobile ? '0.5em' : '1.5em'
       }}
-    />
+    ><p>Blockchain based crowd funding platform</p>
+    <p>Be part of the future, Be a backer and Get rewards</p>
+    </Header>
     <Button primary size='huge'>
-      Get Started
-      <Icon name='right arrow' />
+      SIGN UP NOW
     </Button>
   </Container>
 )

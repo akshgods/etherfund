@@ -7,28 +7,24 @@ const NavBar = (props) =>
     fixed={props.fixed ? 'top' : null}
     inverted={!props.fixed}
     pointing={!props.fixed}
-    secondary={!props.fixed}>
+    secondary={!props.fixed}
+    borderless>
     <Container>
-      <Menu.Item as="a" header id="logo">
-        ?
-      </Menu.Item>
+      <Menu.Item as="a" header id="logo" content="Etherfund" />
       <Link className={`item ${props.active === 'home' ? "active" : ""}`} to="/">
         {"Home"}
       </Link>
-      <Link className={`item ${props.active === 'blog' ? "active" : ""}`} to="/blog">
-        {"Blog"}
-      </Link>
-      <Link className={`item ${props.active === 'event' ? "active" : ""}`} to="/event">
-        {"Event"}
-      </Link>
-      <Link className={`item ${props.active === 'portfolio' ? "active" : ""}`} to="/portfolio">
-        {"Portfolio"}
+      <Link className={`item ${props.active === 'blog' ? "active" : ""}`} to="/explore">
+        {"Explore"}
       </Link>
       <Link className={`item ${props.active === 'about' ? "active" : ""}`} to="/about">
-        {"About"}
+        {"About Us"}
+      </Link>
+      <Link className={`right item ${props.active === 'event' ? "active" : ""}`} to="/campaign">
+        {"Start a Campaign"}
       </Link>
       <Menu.Item position='right'>
-        <Button as='a' inverted={!props.fixed}>Log in</Button>
+        <Button as='a' inverted={!props.fixed} color={props.fixed ? "google plus" : ""}>Log in</Button>
         <Button as='a' inverted={!props.fixed} primary={props.fixed} style={{ marginLeft: '0.5em' }}>Sign Up</Button>
       </Menu.Item>
     </Container>
