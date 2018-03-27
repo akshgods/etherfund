@@ -33,7 +33,7 @@ const HomeHeading = ({ mobile }) => (
 )
 
 HomeHeading.propTypes = {
-  mobile: PropTypes.bool,
+  mobile: PropTypes.bool
 }
 
 export default HomeHeading
