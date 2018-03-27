@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 
 const HomeHeading = ({ mobile }) => (
-  <Container text>
+  <Container>
     <Header
       as='h1'
       content='Find, Fund and Have Fun'
