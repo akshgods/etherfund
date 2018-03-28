@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar'
-import HomeContainer from './home/HomeContainer'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginForm from "./components/LoginForm"
+import Home from './home/Home'
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
+    return <div className="App">
         <Router>
           <div>
-            <HomeContainer>
-              <div className="content">
-                Hello
-              </div>
-            </HomeContainer>
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={Home} />
+            <Route path="/explore" component={Home} />
+            <Route path="/wallet" component={Home} />
+            <Route path="/campaign" component={Home} />
+            <Route path="/about" component={Home} />
           </div>
         </Router>
-      </div>
-    );
+      </div>;
   }
 }
 

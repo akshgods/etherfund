@@ -1,36 +1,42 @@
 import React from 'react'
+import { Button, Form, Grid, Header, Container, Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
-import { Container, Header, Button, Icon } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 const HomeHeading = ({ mobile }) => (
   <Container>
     <Header
-      as='h1'
-      content='Find, Fund and Have Fun'
+      as="h1"
+      content="Find, Fund and Have Fun"
       inverted
       style={{
-        fontSize: mobile ? '1em' : '3em',
-        fontWeight: 'normal',
+        fontSize: mobile ? "1em" : "3em",
+        fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? '1.5em' : '3em'
+        marginTop: mobile ? "1.5em" : "3em"
       }}
     />
     <Header
-      as='h2'
+      as="h2"
       inverted
       style={{
-        fontSize: mobile ? '1.5em' : '1.7em',
-        fontWeight: 'normal',
-        marginTop: mobile ? '0.5em' : '1.5em'
+        fontSize: mobile ? "1.5em" : "1.7em",
+        fontWeight: "normal",
+        marginTop: mobile ? "0.5em" : "1.5em"
       }}
-    ><p>Blockchain based crowd funding platform</p>
-    <p>Be part of the future, Be a backer and Get rewards</p>
+    >
+      <p>Blockchain based crowd funding platform</p>
+      <p>Be part of the future, Be a backer and Get rewards</p>
     </Header>
-    <Button primary size='huge'>
+    <Link
+      className="button huge primary ui"
+      role="button"
+      to="signup"
+    >
       SIGN UP NOW
-    </Button>
+    </Link>
   </Container>
-)
+);
 
 HomeHeading.propTypes = {
   mobile: PropTypes.bool

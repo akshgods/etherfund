@@ -15,15 +15,26 @@ class HomeContainer extends React.Component {
     const { fixed } = this.state
 
     return (
-      <Responsive {...Responsive.onlyComputer}>
-        <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-          <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
-            <NavBar active="home" fixed={fixed}/>
-            <HomeHeading />
-          </Segment>
-        </Visibility>
-        {children}
-      </Responsive>
+      <div>
+        <Responsive {...Responsive.onlyComputer}>
+          <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
+            <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+              <NavBar active="home" fixed={fixed}/>
+              <HomeHeading />
+            </Segment>
+          </Visibility>
+          {children}
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
+          <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
+            <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+              <NavBar active="home" fixed={fixed}/>
+              <HomeHeading />
+            </Segment>
+          </Visibility>
+          {children}
+        </Responsive>
+      </div>
     )
   }
 }
