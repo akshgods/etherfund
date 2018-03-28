@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, Container, Button } from 'semantic-ui-react'
+import LoginSignup from './LoginSignup'
+import { Menu, Container, Modal, Button } from 'semantic-ui-react'
 
 const NavBar = props => (
   <Menu
@@ -43,21 +44,12 @@ const NavBar = props => (
         {"Wallet"}
       </Link>
       <Menu.Item position="right">
-        <Link
-          className={`button ui ${!props.fixed ? "inverted" : "google plus"}`}
-          role="button"
-          to="login"
-        >
-          Log in
-        </Link>
-        <Link
-          className={`button ui ${!props.fixed ? "inverted" : "primary"}`}
-          role="button"
-          to="signup"
-          style={{ marginLeft: "0.5em" }}
-        >
-          Sign Up
-        </Link>
+        <Modal size="tiny" trigger={<Button className={!props.fixed ? "inverted" : "google plus"}>Log In</Button>}>
+          <LoginSignup isLogin={true} />
+        </Modal>
+        <Modal size="tiny" trigger={<Button className={!props.fixed ? "inverted" : "primary"} style={{ marginLeft: "0.5em" }}>Sign Up</Button>}>
+          <LoginSignup isLogin={false} />
+        </Modal>
       </Menu.Item>
     </Container>
   </Menu>
