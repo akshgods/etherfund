@@ -37,12 +37,6 @@ const NavBar = props => (
       >
         {"Start a Campaign"}
       </Link>
-      <Link
-        className={`item ${props.active === "wallet" ? "active" : ""}`}
-        to="/wallet"
-      >
-        {"Wallet"}
-      </Link>
       <Menu.Item position="right">
         <Modal size="tiny" trigger={<Button className={!props.fixed ? "inverted" : "google plus"}>Log In</Button>}>
           <LoginSignup isLogin={true} />

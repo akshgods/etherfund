@@ -18,7 +18,7 @@ class HomeContainer extends React.Component {
       <div>
         <Responsive {...Responsive.onlyComputer}>
           <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-            <Segment inverted textAlign='center' style={{ minHeight: 500, padding: '1em 0em' }} vertical>
+            <Segment inverted textAlign='center' style={{ minHeight: 500, padding: '0em' }} vertical>
               <NavBar active="home" fixed={fixed}/>
               <HomeHeading />
             </Segment>
@@ -27,7 +27,7 @@ class HomeContainer extends React.Component {
         </Responsive>
         <Responsive {...Responsive.onlyTablet}>
           <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-            <Segment inverted textAlign='center' style={{ minHeight: 500, padding: '1em 0em' }} vertical>
+            <Segment inverted textAlign='center' style={{ minHeight: 500, padding: '0em' }} vertical>
               <NavBar active="home" fixed={fixed}/>
               <HomeHeading />
             </Segment>
