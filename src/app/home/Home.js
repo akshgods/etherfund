@@ -1,10 +1,11 @@
 import React from "react";
 import HomeContainer from "./HomeContainer";
+import TestComponent from "../TestComponent"
 
 const Home = () =>
   <HomeContainer>
       <div className="content">
-        {"Content Placeholder"}
+        <TestComponent />
       </div>
   </HomeContainer>
 

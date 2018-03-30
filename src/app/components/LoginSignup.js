@@ -33,13 +33,13 @@ class LoginSignup extends React.Component{
               <Segment stacked>
                 {isLogin ? "" : <Form.Input
                   fluid
-                  icon='user circle'
+                  icon='user'
                   iconPosition='left'
                   placeholder='First Name'
                 />}
                 {isLogin ? "" : <Form.Input
                   fluid
-                  icon='user circle'
+                  icon='user'
                   iconPosition='left'
                   placeholder='Last Name'
                 />}
