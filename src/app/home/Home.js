@@ -1,6 +1,6 @@
 import React from "react";
 import HomeContainer from "./HomeContainer";
-import TestComponent from "../TestComponent"
+import TestComponent from "../test/TestComponent"
 
 const Home = () =>
   <HomeContainer>
