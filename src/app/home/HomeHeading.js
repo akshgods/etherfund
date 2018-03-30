@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header, Container, Button } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
 
 const HomeHeading = ({ mobile }) => (
   <Container>

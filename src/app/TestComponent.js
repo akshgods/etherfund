@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const mapState = state => ({
+const mapStateToProps = state => ({
   data: state.test.data
 });
 
@@ -13,4 +13,4 @@ class SampleComponent extends React.Component {
   }
 }
 
-export default connect(mapState)(SampleComponent);
+export default connect(mapStateToProps)(SampleComponent);

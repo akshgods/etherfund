@@ -9,7 +9,11 @@ import rootReducer from "../reducers/rootReducer";
 
 export default function configureStore(preloadedState) {
   const history = createHistory();
-  const middlewares = [thunk, routerMiddleware(history)];
+
+  const middlewares = [
+    thunk,
+    routerMiddleware(history)
+  ];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 
   const storeEnhancers = [middlewareEnhancer];
