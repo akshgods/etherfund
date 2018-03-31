@@ -5,9 +5,13 @@ const initialState = {
 export default function testReducer(state = initialState, action) {
   switch (action.type) {
     case "NUMBER_INCREMENT":
-      return state + action.value;
+      return Object.assign({}, state, { 
+        data: state.data + action.value 
+      });
     case "NUMBER_DECREMENT":
-      return state - action.value;
+      return Object.assign({}, state, {
+        data: state.data - action.value
+      });
     default:
       return state;
   }

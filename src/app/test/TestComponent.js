@@ -1,39 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import {increase, decrease} from "./testActions"
+import { bindActionCreators } from "redux";
+import * as testActionCreators from "./testActions"
 
 const mapStateToProps = state => ({
   data: state.test.data
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    increase: value => dispatch(increase(value)),
-    decrease: value => dispatch(decrease(value))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  action: bindActionCreators(testActionCreators, dispatch)
+});
+
 
 class SampleComponent extends React.Component {
-  handlePlusClick() {
-    this.props.increase(1)
-  }
-
-  handlePlusClick() {
-    this.props.decrease(1)
-  }
 
   render() {
-    const { data, increase, decrease } = this.props;
+    const { data, action } = this.props;
 
-    return (
-      <div>
-        <button onClick={this.handlePlusClick}>+</button>
-        <button onClick={this.handleMinusClick}>-</button>
-        <div>
-          Data from Redux: {data}
-        </div>
-      </div>
-    )
+    return <div>
+        <button onClick={() => action.increase(1)}>+</button>
+        <button onClick={() => action.decrease(1)}>-</button>
+        <div>Data from Redux: {data}</div>
+      </div>;
   }
 }
 

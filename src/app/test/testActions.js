@@ -1,9 +1,13 @@
-export const increase = value => {
-  type: "NUMBER_INCREMENT",
-  value
-}
+export function increase(value) {
+  return {
+    type: "NUMBER_INCREMENT",
+    value
+  };
+} 
 
-export const decrease = value => {
-  type: "NUMBER_DECREMENT",
-  value
+export function decrease(value) {
+  return {
+    type: "NUMBER_DECREMENT",
+    value
+  };
 }
