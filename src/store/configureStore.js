@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 
 import createHistory from "history/createBrowserHistory";
 import thunk from "redux-thunk";
+import promiseMiddleware from "redux-promise-middleware";
 
 import rootReducer from "../reducers/rootReducer";
 
@@ -12,8 +13,10 @@ export default function configureStore(preloadedState) {
 
   const middlewares = [
     thunk,
+    promiseMiddleware(),
     routerMiddleware(history)
   ];
+
   const middlewareEnhancer = applyMiddleware(...middlewares);
 
   const storeEnhancers = [middlewareEnhancer];

@@ -1,4 +1,4 @@
-export const items = [
+const items = [
     {
        "title": "Esoqi - One-Touch Wireless Fast-Charge Car Mount",
        "description": "No Hands Needed. One-Touch Mounting. For Any Smartphone. Qi Wireless Charging. Incredibly Stable.",
@@ -30,3 +30,5 @@ export const items = [
        "id": "2"
     }
 ]
+
+export default items

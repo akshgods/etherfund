@@ -3,6 +3,7 @@ import './App.css';
 import Home from './home/Home'
 import About from './about/About'
 import Explore from './explore/Explore'
+import SingleItem from "./explore/SingleItem";
 import { Provider } from "react-redux";
 import { Route } from "react-router-dom"
 import { ConnectedRouter } from "react-router-redux"
@@ -22,6 +23,7 @@ class App extends Component {
             <div>
               <Route exact path="/" component={Home} />
               <Route path="/explore" component={Explore} />
+              <Route path="/explore/(:id)" component={"this is single item"} />
               <Route path="/campaign" component={Home} />
               <Route path="/about" component={About} />
             </div>
