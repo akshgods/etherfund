@@ -6,21 +6,12 @@ const initialState = {
 
 export default function exploreReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_ITEMS_BEGIN":
-      return {
-        ...state,
-        loading: true
-      }
-    case "GET_ITEMS_SUCCESS":
-      return {
-        ...state,
-        items: action.response
-      }
-    case "GET_ITEMS_FAIL":
-      return {
-        ...state,
-        error: action.error
-      }
+    case "FETCH_ITEMS_BEGIN":
+      return { ...state, loading: true, error: null };
+    case "FETCH_ITEMS_SUCCESS":
+      return { ...state, loading: false, items: action.payload.items };
+    case "FETCH_ITEMS_ERROR":
+      return { ...state, loading: false, error: action.payload.error };
     default:
       return state;
   }

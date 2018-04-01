@@ -1,36 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getItems } from "./exploreActionCreator";
-import { fetchData } from "../../utils/data/API";
+import { fetchItems } from "./exploreActionCreator";
 
 const mapStateToProps = state => ({
-  items: state.items
+  items: state.items,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getItems: (items) => dispatch(getItems(items))
-});
+//const mapDispatchToProps = ;
 
 class ItemList extends React.Component {
 
   componentDidMount() {
-    this.fetchItems();
-  }
-
-  fetchItems() {
-    fetchData().then(items => {
-      this.props.getItems(items);
-    });
+    this.props.dispatch(fetchItems());
   }
 
   render() {
-    const { body } = this.props;
+    const { error, loading, items } = this.props.items;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
     return (
-      <div>
-        {"hello"}
-      </div>);
+      <ul>
+        {items.map(item =>
+          <li key={item.id}>{item.title}</li>
+        )}
+      </ul>
+    );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
+export default connect(mapStateToProps)(ItemList);
