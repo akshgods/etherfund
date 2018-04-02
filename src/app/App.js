@@ -7,12 +7,10 @@ import SingleItem from "./explore/SingleItem";
 import { Provider } from "react-redux";
 import { Route } from "react-router-dom"
 import { ConnectedRouter } from "react-router-redux"
-import createHistory from 'history/createBrowserHistory'
+import history from '../utils/history'
 
 import configureStore from "../store/configureStore";
 const store = configureStore();
-
-const history = createHistory();
 
 class App extends Component {
   render() {

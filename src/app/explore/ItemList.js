@@ -1,19 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { push } from "react-router-redux";
-import { withRouter } from 'react-router-dom';
 import { fetchItems } from "./exploreActionCreator";
 import { Grid, Container, Card } from "semantic-ui-react";
 import ItemCard from "./ItemCard";
+import history from "../../utils/history"
 
 const mapStateToProps = state => ({
   items: state.items,
-});
-
-const mapDispatchToProps = dispatch => ({
-  navi(desti) {
-    dispatch(push(desti));
-  }
 });
 
 class ItemList extends React.Component {
@@ -24,7 +17,7 @@ class ItemList extends React.Component {
   }
 
   handleClick = (e) => {
-    this.props.dispatch(push("/"));
+    history.push("/");
   }
 
   render() {
@@ -72,4 +65,4 @@ class ItemList extends React.Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(ItemList));
+export default connect(mapStateToProps)(ItemList);

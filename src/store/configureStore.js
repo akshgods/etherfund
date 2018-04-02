@@ -2,14 +2,13 @@ import { createStore, applyMiddleware } from "redux";
 import { routerMiddleware } from "react-router-redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 
-import createHistory from "history/createBrowserHistory";
+import history from "../utils/history";
 import thunk from "redux-thunk";
 import promiseMiddleware from "redux-promise-middleware";
 
 import rootReducer from "../reducers/rootReducer";
 
 export default function configureStore(preloadedState) {
-  const history = createHistory();
 
   const middlewares = [
     thunk,
