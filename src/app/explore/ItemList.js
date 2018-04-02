@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "./exploreActionCreator";
-import { Grid, Container, Card } from "semantic-ui-react";
+import { Grid, Container, Card, Loader, Dimmer } from "semantic-ui-react";
 import ItemCard from "./ItemCard";
 import history from "../../utils/history"
 
@@ -28,7 +28,11 @@ class ItemList extends React.Component {
     }
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <Container>
+        <Dimmer active inverted>
+          <Loader size='large'>Loading</Loader>
+        </Dimmer>
+      </Container>
     }
 
     return <Container>
