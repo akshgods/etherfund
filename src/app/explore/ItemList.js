@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "./exploreActionCreator";
-import { Grid, Container, Card, Loader, Dimmer } from "semantic-ui-react";
+import { Grid, Container, Card, Loader, Dimmer, Input, Segment } from "semantic-ui-react";
 import ItemCard from "./ItemCard";
 import history from "../../utils/history"
 
@@ -37,8 +37,11 @@ class ItemList extends React.Component {
 
     return <Container>
         <Grid>
-          <Grid.Column width={4}>{"Search and Filter"}</Grid.Column>
+          <Grid.Column width={4}>{"Filters"}</Grid.Column>
           <Grid.Column width={12}>
+            <Container style={{ padding: "0em 0em 1em" }}>
+              <Input fluid action={{ icon: "search" }} labelPosition="left" placeholder="Search..." />
+            </Container>
             <Card.Group itemsPerRow={3}>
               {items.map(item => (
                 <ItemCard
@@ -60,7 +63,7 @@ class ItemList extends React.Component {
                         (24 * 60 * 60 * 1000)
                     )
                   )}
-                ></ItemCard>
+                />
               ))}
             </Card.Group>
           </Grid.Column>
