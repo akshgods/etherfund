@@ -15,10 +15,8 @@ const ItemCard = props => (
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
-        <Icon name="time" />
-        {props.dayLeft} days left
-      </a>
+      <Icon name="time" />
+      {props.dayLeft} days left
     </Card.Content>
   </Card>
 );

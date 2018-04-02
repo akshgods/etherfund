@@ -1,26 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
+import { withRouter } from 'react-router-dom';
 import { fetchItems } from "./exploreActionCreator";
 import { Grid, Container, Card } from "semantic-ui-react";
-import { withRouter } from "react-router-dom";
 import ItemCard from "./ItemCard";
 
 const mapStateToProps = state => ({
   items: state.items,
 });
 
-//const mapDispatchToProps = ;
+const mapDispatchToProps = dispatch => ({
+  navi(desti) {
+    dispatch(push(desti));
+  }
+});
 
 class ItemList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchItems());
+    console.log(this.props)
+  }
+
+  handleClick = (e) => {
+    this.props.dispatch(push("/"));
   }
 
   render() {
     const { error, loading, items } = this.props.items;
-
-    const { history } = this.props;
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -37,7 +45,7 @@ class ItemList extends React.Component {
             <Card.Group itemsPerRow={3}>
               {items.map(item => (
                 <ItemCard
-                  onClick={() => {history.push('/')}}
+                  onClick={this.handleClick}
                   key={item.id}
                   title={item.title}
                   description={item.description}
@@ -55,7 +63,7 @@ class ItemList extends React.Component {
                         (24 * 60 * 60 * 1000)
                     )
                   )}
-                />
+                ></ItemCard>
               ))}
             </Card.Group>
           </Grid.Column>
@@ -64,4 +72,4 @@ class ItemList extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(ItemList);
+export default withRouter(connect(mapStateToProps)(ItemList));
