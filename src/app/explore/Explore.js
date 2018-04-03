@@ -1,6 +1,6 @@
 import React from "react";
 import ItemList from './ItemList'
-import NavBar from '../components/NavBar'
+import NavBar from "../components/NavBar";
 
 const Explore = () => (
   <div>

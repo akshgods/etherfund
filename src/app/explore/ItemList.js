@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "./exploreActionCreator";
-import { Grid, Container, Card, Loader, Dimmer, Input, Segment } from "semantic-ui-react";
+import { Grid, Container, Card, Loader, Dimmer, Input } from "semantic-ui-react";
 import ItemCard from "./ItemCard";
 import history from "../../utils/history"
 
@@ -40,7 +40,7 @@ class ItemList extends React.Component {
           <Grid.Column width={4}>{"Filters"}</Grid.Column>
           <Grid.Column width={12}>
             <Container style={{ padding: "0em 0em 1em" }}>
-              <Input fluid action={{ icon: "search" }} labelPosition="left" placeholder="Search..." />
+              <Input action={{ color: "gray", labelPosition: "left", icon: "search", content: "Search" }} actionPosition="left" placeholder="Search..." fluid />
             </Container>
             <Card.Group itemsPerRow={3}>
               {items.map(item => (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image, Progress, Grid } from "semantic-ui-react";
+import { Card, Icon, Image, Progress } from "semantic-ui-react";
 
 const ItemCard = props => (
   <Card style={{ textAlign: "left" }} raised onClick={props.onClick}>
