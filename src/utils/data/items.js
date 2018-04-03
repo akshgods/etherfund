@@ -8,7 +8,8 @@ const items = [
     city: "Austin",
     country: "USA",
     due: "4/22/2018",
-    image: "http://lorempixel.com/640/480/business",
+    image:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "10000.00",
     target: "20000.00",
     category: "Tech & Innovation",
@@ -23,7 +24,8 @@ const items = [
     city: "Austin",
     country: "USA",
     due: "4/19/2018",
-    image: "http://lorempixel.com/640/480/business",
+    image:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
@@ -38,7 +40,8 @@ const items = [
     city: "Austin",
     country: "USA",
     due: "4/19/2018",
-    image: "http://lorempixel.com/640/480/business",
+    image:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
@@ -53,7 +56,8 @@ const items = [
     city: "Austin",
     country: "USA",
     due: "4/19/2018",
-    image: "http://lorempixel.com/640/480/business",
+    image:
+      "https://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",

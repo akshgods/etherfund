@@ -12,7 +12,7 @@ const TargetForm = () => (
     <Form>
       <h5>How much money would you like to raise?</h5>
       <Form.Group>
-        <Form.Input placeholder="minimum" defaultValue="500" />
+        <Form.Input placeholder="minimum" type="number" defaultValue="50" />
         <Form.Select options={options} defaultValue="eth" />
       </Form.Group>
       <h5>What is the title of your campaign?</h5>
