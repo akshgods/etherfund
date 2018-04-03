@@ -1,13 +1,15 @@
 import React from "react";
 import { Tab } from "semantic-ui-react";
-import TargetFrom from "./TargetForm"
+import TargetFrom from "./TargetForm";
+import BasicForm from "./BasicForm";
 import DetailForm from "./DetailForm";
 
 
 const panes = [
   { menuItem: "New Campaign", render: () => <Tab.Pane><TargetFrom /></Tab.Pane> },
-  { menuItem: "Details", render: () => <Tab.Pane><DetailForm /></Tab.Pane> },
-  { menuItem: "Preview", render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> }
+  { menuItem: "Basics", render: () => <Tab.Pane><BasicForm /></Tab.Pane> },
+  { menuItem: "Story", render: () => <Tab.Pane><DetailForm /></Tab.Pane> },
+  { menuItem: "Preview", render: () => <Tab.Pane>Preview</Tab.Pane> }
 ];
 
 const Tabs = () => (
