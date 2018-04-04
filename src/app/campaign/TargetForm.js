@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form, Button } from "semantic-ui-react";
+import { Container, Form } from "semantic-ui-react";
 
 const options = [
   { key: "eth", text: "ETH", value: "eth" },
@@ -10,16 +10,18 @@ const TargetForm = () => (
   <Container textAlign="left">
     <h2>Start a campaign</h2>
     <Form>
-      <h5>How much money would you like to raise?</h5>
+      <Form.Field label='How much money would you like to raise?'/>
       <Form.Group>
         <Form.Input placeholder="minimum" type="number" defaultValue="50" />
         <Form.Select options={options} defaultValue="eth" />
       </Form.Group>
-      <h5>What is the title of your campaign?</h5>
-      <Form.Input fluid placeholder="Campaign title..." />
-      <Button type="submit" color="green">
+      <label>50 ETH Min</label>
+      <p />
+      <p />
+      <Form.Input label="What is the title of your campaign?" required fluid placeholder="Campaign title..." />
+      <Form.Button type="submit" color="green">
         Continue
-      </Button>
+      </Form.Button>
     </Form>
   </Container>
 );

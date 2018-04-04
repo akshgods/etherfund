@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form, Button, TextArea } from "semantic-ui-react";
+import { Container, Form } from "semantic-ui-react";
 import DropZone from "./DropZone"
 
 const options = [
@@ -34,19 +34,21 @@ const BasicForm = () => (
         required
       />
 
-      <h5>Description</h5>
-      <TextArea
+      <Form.TextArea
         autoHeight
+        label="Description"
         placeholder="Campaign description..."
         value={"hello"}
         required
       />
 
-      <h5>Campaign Card Image</h5>
-      <DropZone />
+      <Form.Field required>
+         <label>Campaign Card Image</label>
+         <DropZone />
+       </Form.Field>
 
-      <h5>Location</h5>
-      <Form.Group widths="equal" label="Location">
+      <h4>Location</h4>
+      <Form.Group widths="equal">
         <Form.Input label="City" placeholder="City" type="text" required />
         <Form.Input
           label="Country"
@@ -77,9 +79,9 @@ const BasicForm = () => (
         {Date()}
       </h5>
 
-      <Button type="submit" color="green">
+      <Form.Button type="submit" color="green">
         Continue
-      </Button>
+      </Form.Button>
     </Form>
   </Container>
 );
