@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form } from "semantic-ui-react";
+import { Container, Form, Select, Dropdown } from "semantic-ui-react";
 import DropZone from "./DropZone"
 
 const options = [
@@ -8,82 +8,139 @@ const options = [
   { key: "project", text: "COMMUNITIES", value: "Communities" }
 ];
 
-const BasicForm = () => (
-  <Container textAlign="left">
-    <h2>Basics</h2>
-    <Form>
-      <Form.Input
-        fluid
-        label="Campaign Title"
-        placeholder="Campaign title..."
-        value={"hello"}
-        required
-      />
+class BasicForm extends React.Component {
+  state = {
+    runner: "",
+    benefactor: "",
+    description: "",
+    city: "",
+    country: "",
+    duration: 30
+  };
 
-      <Form.Input
-        label="The Runner"
-        placeholder="Runner..."
-        value={"hello"}
-        required
-      />
+  /*handleChange = e => {
+    console.log(e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
+  };*/
 
-      <Form.Input
-        label="The Benefactor"
-        placeholder="Benefactor..."
-        value={"hello"}
-        required
-      />
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state)
+  };
 
-      <Form.TextArea
-        autoHeight
-        label="Description"
-        placeholder="Campaign description..."
-        value={"hello"}
-        required
-      />
+  render() {
+    const {
+      runner,
+      benefactor,
+      description,
+      city,
+      country,
+      value,
+      duration
+    } = this.state;
 
-      <Form.Field required>
-         <label>Campaign Card Image</label>
-         <DropZone />
-       </Form.Field>
+    return (
+      <Container textAlign="left">
+        <h2>Basics</h2>
+        <Form>
+          <Form.Input
+            fluid
+            label="Campaign Title"
+            name="title"
+            placeholder="Campaign title..."
+            value={"Hello"}
+            required
+          />
 
-      <h4>Location</h4>
-      <Form.Group widths="equal">
-        <Form.Input label="City" placeholder="City" type="text" required />
-        <Form.Input
-          label="Country"
-          placeholder="Country"
-          type="text"
-          required
-        />
-      </Form.Group>
+          <Form.Input
+            label="The Runner"
+            name="runner"
+            placeholder="Runner..."
+            value={runner}
+            onChange={this.handleChange}
+            required
+          />
 
-      <Form.Select
-        label="Category"
-        options={options}
-        placeholder="Select a category"
-        required
-      />
+          <Form.Input
+            label="The Benefactor"
+            name="benefactor"
+            placeholder="Benefactor..."
+            value={benefactor}
+            onChange={this.handleChange}
+            required
+          />
 
-      <Form.Input
-        fluid
-        label="Campaign Duration"
-        type="number"
-        width={5}
-        value={30}
-        required
-      />
+          <Form.TextArea
+            autoHeight
+            label="Description"
+            name="description"
+            placeholder="Campaign description..."
+            value={description}
+            onChange={this.handleChange}
+            required
+          />
 
-      <h5>
-        Due Date:
-        {Date()}
-      </h5>
+          <Form.Field required>
+            <label>Campaign Card Image</label>
+            <DropZone />
+          </Form.Field>
 
-      <Form.Button type="submit" color="green">
-        Continue
-      </Form.Button>
-    </Form>
-  </Container>
-);
+          <h4>Location</h4>
+          <Form.Group widths="equal">
+            <Form.Input
+              label="City"
+              name="city"
+              placeholder="City"
+              type="text"
+              value={city}
+              onChange={this.handleChange}
+              required
+            />
+            <Form.Input
+              label="Country"
+              name="country"
+              placeholder="Country"
+              type="text"
+              value={country}
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+
+          <Form.Field>
+            <label required>Category</label>
+            <Dropdown
+              onChange={this.handleChange}
+              options={options}
+              placeholder="Select a Category"
+              selection
+              value={value}
+            />
+          </Form.Field>
+
+          <Form.Input
+            fluid
+            label="Campaign Duration"
+            name="duration"
+            type="number"
+            width={5}
+            value={duration}
+            onChange={this.handleChange}
+            required
+          />
+
+          <h5>
+            Due Date:
+            {Date()}
+          </h5>
+
+          <Form.Button type="submit" color="green">
+            Continue
+          </Form.Button>
+        </Form>
+      </Container>
+    );
+  }
+} 
 
 export default BasicForm;

@@ -14,7 +14,6 @@ const panes = [
 
 const Tabs = () => (
   <Tab
-    activeIndex={0}
     onTabChange={() => console.log("happy")}
     menu={{ attached: true, fluid: true, vertical: true, tabular: true }}
     panes={panes}

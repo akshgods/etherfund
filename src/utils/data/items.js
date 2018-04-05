@@ -40,8 +40,7 @@ const items = [
     city: "Austin",
     country: "USA",
     due: "4/19/2018",
-    image:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    image: "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
