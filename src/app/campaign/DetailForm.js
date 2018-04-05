@@ -1,15 +1,33 @@
 import React from "react";
 import { Container, Form } from "semantic-ui-react";
-import DropZone from "./DropZone"
+import DropZone from "./DropZone";
+import { connect } from "react-redux";
+import { changeTab, saveChange } from "./formActionCreator";
+
+const mapStateToProps = state => ({
+  items: state.form.items,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onTabChange(data) {
+    dispatch(changeTab(data))
+  },
+  onButtonClick(data) {
+    dispatch(saveChange(data))
+  }
+})
 
 class DetailForm extends React.Component {
-  state = {
-    story: ""
-  };
+  state = this.props.items;
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  handleClick = () => {
+    this.props.onButtonClick(this.state)
+    this.props.onTabChange(3)
+  }
 
   render() {
     const { story } = this.state;
@@ -25,12 +43,12 @@ class DetailForm extends React.Component {
           </Form.Field>
           <p />
 
-          <Form.Button type="submit" color="green">
-            Continue
+          <Form.Button type="submit" color="green" onClick={this.handleClick}>
+            Save & Continue
           </Form.Button>
         </Form>
       </Container>;
   }
-} 
+}
 
-export default DetailForm;
+export default connect(mapStateToProps, mapDispatchToProps)(DetailForm);

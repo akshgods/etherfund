@@ -1,6 +1,8 @@
 import React from "react";
-import { Container, Form, Select, Dropdown } from "semantic-ui-react";
-import DropZone from "./DropZone"
+import { Container, Form, Dropdown, Image } from "semantic-ui-react";
+import DropZone from "./DropZone";
+import { connect } from "react-redux";
+import { changeTab, saveChange } from "./formActionCreator";
 
 const options = [
   { key: "tech", text: "TECH & INNOVATION", value: "Tech & Innovation" },
@@ -8,15 +10,21 @@ const options = [
   { key: "project", text: "COMMUNITIES", value: "Communities" }
 ];
 
+const mapStateToProps = state => ({
+  items: state.form.items,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onTabChange(data) {
+    dispatch(changeTab(data))
+  },
+  onButtonClick(data) {
+    dispatch(saveChange(data))
+  }
+})
+
 class BasicForm extends React.Component {
-  state = {
-    runner: "",
-    benefactor: "",
-    description: "",
-    city: "",
-    country: "",
-    duration: 30
-  };
+  state = this.props.items;
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -24,8 +32,12 @@ class BasicForm extends React.Component {
 
   handleSelectChange = (e, { value }) => {
     this.setState({ category: value });
-    console.log(this.state)
   };
+
+  handleClick = () => {
+    this.props.onButtonClick(this.state)
+    this.props.onTabChange(2)
+  }
 
   render() {
     const {
@@ -38,10 +50,12 @@ class BasicForm extends React.Component {
       duration
     } = this.state;
 
+    const { title } = this.props.items
+
     return <Container textAlign="left">
         <h2>Basics</h2>
         <Form>
-          <Form.Input fluid label="Campaign Title" name="title" placeholder="Campaign title..." value={"Hello"} required />
+          <Form.Input fluid label="Campaign Title" name="title" placeholder="Campaign title..." value={title} required />
 
           <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} onChange={this.handleChange} required />
 
@@ -72,12 +86,12 @@ class BasicForm extends React.Component {
             {Date()}
           </h5>
 
-          <Form.Button type="submit" color="green">
-            Continue
+          <Form.Button type="submit" color="green" onClick={this.handleClick}>
+            Save & Continue
           </Form.Button>
         </Form>
       </Container>;
   }
-} 
+}
 
-export default BasicForm;
+export default connect(mapStateToProps, mapDispatchToProps)(BasicForm);
