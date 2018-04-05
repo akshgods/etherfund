@@ -18,13 +18,12 @@ class BasicForm extends React.Component {
     duration: 30
   };
 
-  /*handleChange = e => {
-    console.log(e.target.value);
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };*/
+  };
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleSelectChange = (e, { value }) => {
+    this.setState({ category: value });
     console.log(this.state)
   };
 
@@ -35,50 +34,20 @@ class BasicForm extends React.Component {
       description,
       city,
       country,
-      value,
+      category,
       duration
     } = this.state;
 
-    return (
-      <Container textAlign="left">
+    return <Container textAlign="left">
         <h2>Basics</h2>
         <Form>
-          <Form.Input
-            fluid
-            label="Campaign Title"
-            name="title"
-            placeholder="Campaign title..."
-            value={"Hello"}
-            required
-          />
+          <Form.Input fluid label="Campaign Title" name="title" placeholder="Campaign title..." value={"Hello"} required />
 
-          <Form.Input
-            label="The Runner"
-            name="runner"
-            placeholder="Runner..."
-            value={runner}
-            onChange={this.handleChange}
-            required
-          />
+          <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} onChange={this.handleChange} required />
 
-          <Form.Input
-            label="The Benefactor"
-            name="benefactor"
-            placeholder="Benefactor..."
-            value={benefactor}
-            onChange={this.handleChange}
-            required
-          />
+          <Form.Input label="The Benefactor" name="benefactor" placeholder="Benefactor..." value={benefactor} onChange={this.handleChange} required />
 
-          <Form.TextArea
-            autoHeight
-            label="Description"
-            name="description"
-            placeholder="Campaign description..."
-            value={description}
-            onChange={this.handleChange}
-            required
-          />
+          <Form.TextArea autoHeight label="Description" name="description" placeholder="Campaign description..." value={description} onChange={this.handleChange} required />
 
           <Form.Field required>
             <label>Campaign Card Image</label>
@@ -87,47 +56,16 @@ class BasicForm extends React.Component {
 
           <h4>Location</h4>
           <Form.Group widths="equal">
-            <Form.Input
-              label="City"
-              name="city"
-              placeholder="City"
-              type="text"
-              value={city}
-              onChange={this.handleChange}
-              required
-            />
-            <Form.Input
-              label="Country"
-              name="country"
-              placeholder="Country"
-              type="text"
-              value={country}
-              onChange={this.handleChange}
-              required
-            />
+            <Form.Input label="City" name="city" placeholder="City" type="text" value={city} onChange={this.handleChange} required />
+            <Form.Input label="Country" name="country" placeholder="Country" type="text" value={country} onChange={this.handleChange} required />
           </Form.Group>
 
-          <Form.Field>
-            <label required>Category</label>
-            <Dropdown
-              onChange={this.handleChange}
-              options={options}
-              placeholder="Select a Category"
-              selection
-              value={value}
-            />
+          <Form.Field required>
+            <label>Category</label>
+            <Dropdown onChange={this.handleSelectChange} options={options} placeholder="Select a Category" selection value={category} />
           </Form.Field>
 
-          <Form.Input
-            fluid
-            label="Campaign Duration"
-            name="duration"
-            type="number"
-            width={5}
-            value={duration}
-            onChange={this.handleChange}
-            required
-          />
+          <Form.Input fluid label="Campaign Duration" name="duration" type="number" width={5} value={duration} onChange={this.handleChange} required />
 
           <h5>
             Due Date:
@@ -138,8 +76,7 @@ class BasicForm extends React.Component {
             Continue
           </Form.Button>
         </Form>
-      </Container>
-    );
+      </Container>;
   }
 } 
 
