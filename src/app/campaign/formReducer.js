@@ -2,6 +2,7 @@ const initialState = {
   items: {
     target: 50,
     title: "",
+    currency: "ETH",
     runner: "",
     benefactor: "",
     description: "",

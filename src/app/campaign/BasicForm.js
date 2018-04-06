@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form, Dropdown, Image } from "semantic-ui-react";
+import { Container, Form, Dropdown } from "semantic-ui-react";
 import DropZone from "./DropZone";
 import { connect } from "react-redux";
 import { changeTab, saveChange } from "./formActionCreator";
