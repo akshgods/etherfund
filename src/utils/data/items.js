@@ -4,16 +4,20 @@ const items = [
     description:
       "No Hands Needed. One-Touch Mounting. For Any Smartphone. Qi Wireless Charging. Incredibly Stable.",
     runner: "Esorun",
+    currency: "ETH",
     benefactor: "NPO",
     city: "Austin",
     country: "USA",
-    due: "4/22/2018",
-    image:
+    startDate: "4/22/2018",
+    duration: "30",
+    cardImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    storyImgUrl:
       "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "10000.00",
     target: "20000.00",
     category: "Tech & Innovation",
-    tags: ["awesome", "unique"],
+    story: "awesome and unique",
     id: "1"
   },
   {
@@ -21,10 +25,14 @@ const items = [
     description: "For Testing",
     runner: "Chen Li",
     benefactor: "Chen Li",
+    currency: "ETH",
     city: "Austin",
     country: "USA",
-    due: "4/19/2018",
-    image:
+    startDate: "4/19/2018",
+    duration: "30",
+    cardImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    storyImgUrl:
       "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
@@ -37,10 +45,15 @@ const items = [
     description: "For Testing",
     runner: "Chen Li",
     benefactor: "Chen Li",
+    currency: "ETH",
     city: "Austin",
     country: "USA",
-    due: "4/19/2018",
-    image: "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    startDate: "4/19/2018",
+    duration: "30",
+    cardImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    storyImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
@@ -52,11 +65,15 @@ const items = [
     description: "For Testing",
     runner: "Chen Li",
     benefactor: "Chen Li",
+    currency: "ETH",
     city: "Austin",
     country: "USA",
-    due: "4/19/2018",
-    image:
-      "https://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    startDate: "4/19/2018",
+    duration: "30",
+    cardImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+    storyImgUrl:
+      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",

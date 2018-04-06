@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from "react-redux";
+import { fetchItems } from "../explore/exploreActionCreator";
 import { Responsive, Visibility, Segment } from 'semantic-ui-react'
 import HomeHeading from './HomeHeading'
 import NavBar from '../components/NavBar'
@@ -9,6 +11,10 @@ class HomeContainer extends React.Component {
 
   hideFixedMenu = () => this.setState({ fixed: false })
   showFixedMenu = () => this.setState({ fixed: true })
+
+  componentDidMount() {
+    this.props.dispatch(fetchItems());
+  }
 
   render() {
     const { children } = this.props
@@ -39,4 +45,4 @@ class HomeContainer extends React.Component {
   }
 }
 
-export default HomeContainer
+export default connect()(HomeContainer)
