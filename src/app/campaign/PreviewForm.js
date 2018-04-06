@@ -50,21 +50,21 @@ class PreviewForm extends React.Component {
               </Header>
               <List>
                 <List.Item>
-                  <Label>
+                  <Label basic>
                     <Icon name="users" />
                     Runner
                     <Label.Detail>{runner}</Label.Detail>
                   </Label>
                 </List.Item>
                 <List.Item>
-                  <Label>
+                  <Label basic>
                     <Icon name="marker" />
                     {`${city}, ${country}`}
                   </Label>
                 </List.Item>
                 <List.Item> </List.Item>
                 <List.Item>
-                  <Label>
+                  <Label basic>
                     <Icon name="like" />
                     Benefactor
                     <Label.Detail>{benefactor}</Label.Detail>
