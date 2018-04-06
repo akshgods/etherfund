@@ -27,7 +27,7 @@ class ItemList extends React.Component {
       return <div>Error! {error.message}</div>;
     }
 
-    if (loading) {
+    if (loading && items.length === 0){
       return <Container>
         <Dimmer active inverted>
           <Loader size='large'>Loading</Loader>
@@ -47,22 +47,7 @@ class ItemList extends React.Component {
                 <ItemCard
                   onClick={() => this.handleClick(item.id)}
                   key={item.id}
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
-                  percent={
-                    parseInt(item.raised, 10) /
-                    parseInt(item.target, 10) *
-                    100
-                  }
-                  raised={item.raised}
-                  dayLeft={Math.round(
-                    Math.abs(
-                      (new Date(item.due).getTime() -
-                        new Date().getTime()) /
-                        (24 * 60 * 60 * 1000)
-                    )
-                  )}
+                  { ...item }
                 />
               ))}
             </Card.Group>
