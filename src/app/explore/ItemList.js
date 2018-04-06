@@ -16,8 +16,8 @@ class ItemList extends React.Component {
     console.log(this.props)
   }
 
-  handleClick = (e) => {
-    history.push("/");
+  handleClick = (id) => {
+    history.push("/explore/" + id);
   }
 
   render() {
@@ -40,12 +40,12 @@ class ItemList extends React.Component {
           <Grid.Column width={4}>{"Filters"}</Grid.Column>
           <Grid.Column width={12}>
             <Container style={{ padding: "0em 0em 1em" }}>
-              <Input action={{ color: "gray", labelPosition: "left", icon: "search", content: "Search" }} actionPosition="left" placeholder="Search..." fluid />
+              <Input action={{ color: "grey", labelPosition: "left", icon: "search", content: "Search" }} actionPosition="left" placeholder="Search..." fluid />
             </Container>
             <Card.Group itemsPerRow={3}>
               {items.map(item => (
                 <ItemCard
-                  onClick={this.handleClick}
+                  onClick={() => this.handleClick(item.id)}
                   key={item.id}
                   title={item.title}
                   description={item.description}

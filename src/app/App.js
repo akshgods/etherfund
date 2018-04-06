@@ -15,21 +15,19 @@ const store = configureStore();
 
 class App extends Component {
   render() {
-    return (
-      <Provider store={store}>
+    return <Provider store={store}>
         <div className="App">
           <ConnectedRouter history={history}>
             <div>
               <Route exact path="/" component={Home} />
-              <Route path="/explore" component={Explore} />
-              <Route path="/explore/(:id)" component={"this is single item"} />
+              <Route exact path="/explore" component={Explore} />
+              <Route path="/explore/:id" component={SingleItem} />
               <Route path="/campaign" component={Campaign} />
               <Route path="/about" component={About} />
             </div>
           </ConnectedRouter>
         </div>
-      </Provider>
-    )}
+      </Provider>;}
 }
 
 export default App;
