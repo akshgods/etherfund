@@ -11,9 +11,9 @@ const items = [
     startDate: "4/22/2018",
     duration: "30",
     cardImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     storyImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     raised: "10000.00",
     target: "20000.00",
     category: "Tech & Innovation",
@@ -31,9 +31,9 @@ const items = [
     startDate: "4/19/2018",
     duration: "30",
     cardImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     storyImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
@@ -51,9 +51,9 @@ const items = [
     startDate: "4/19/2018",
     duration: "30",
     cardImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     storyImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",
@@ -71,9 +71,9 @@ const items = [
     startDate: "4/19/2018",
     duration: "30",
     cardImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     storyImgUrl:
-      "http://res.cloudinary.com/lchen139/image/upload/v1522754572/sample.jpg",
+      "https://res.cloudinary.com/lchen139/image/upload/v1523035590/pd4ftyzrs7vscnkwsbfu.jpg",
     raised: "1000000.00",
     target: "20000.00",
     category: "Communities",

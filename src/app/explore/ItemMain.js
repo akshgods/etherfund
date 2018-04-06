@@ -80,7 +80,7 @@ const ItemMain = (props) => {
       </Grid.Column>
     </Grid.Row>
     <Grid.Row columns={2}>
-      <Grid.Column width={10}>
+      <Grid.Column width={12}>
         <div style={{ margin: "10px" }}>
           <Header as="h3" floated="right">
             {category}
