@@ -1,17 +1,28 @@
-import React, { Component } from 'react';
-import './App.css';
-import Home from './home/Home'
-import About from './about/About'
-import Explore from './explore/Explore'
+import React, { Component } from "react";
+import "./App.css";
+import Home from "./home/Home";
+import About from "./about/About";
+import Explore from "./explore/Explore";
 import SingleItem from "./explore/SingleItem";
 import Campaign from "./campaign/Campaign";
 import { Provider } from "react-redux";
-import { Route } from "react-router-dom"
-import { ConnectedRouter } from "react-router-redux"
-import history from '../utils/history'
-
+import { Route } from "react-router-dom";
+import { ConnectedRouter } from "react-router-redux";
+import history from "../utils/history";
 import configureStore from "../store/configureStore";
-const store = configureStore();
+import throttle from "lodash/throttle";
+
+import { loadState, saveState } from "../utils/localStorage";
+
+const presistedState = loadState(); 
+
+const store = configureStore(presistedState);
+
+store.subscribe(throttle(() => {
+  saveState({
+    auth: store.getState().auth
+  })
+}, 1000));
 
 class App extends Component {
   render() {

@@ -4,7 +4,7 @@ import TestComponent from "../test/TestComponent"
 
 const Home = () =>
   <HomeContainer>
-      <div className="content">
+      <div className="test">
         <TestComponent />
       </div>
   </HomeContainer>

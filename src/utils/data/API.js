@@ -9,6 +9,16 @@ export function fetchData() {
   });
 }
 
+export function userLogin(user) {
+  return axios
+    .post('/auth/login', user)
+}
+
+export function userSignup(user) {
+  return axios
+    .post('/auth/signup', user)
+}
+
 export function postImage(imgFile) {
   const formData = new FormData()
   formData.append("file", imgFile);

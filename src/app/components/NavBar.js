@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import LoginSignup from './LoginSignup'
+import LoginSignup from '../user/LoginSignup'
 import { Menu, Container, Modal, Button } from 'semantic-ui-react'
 
 const NavBar = props => (
