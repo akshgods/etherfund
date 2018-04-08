@@ -15,6 +15,11 @@ export default function userReducer(state = initialState, action) {
           lastName: action.payload.user.lastName
         }
       };
+    case "USER_LOGOUT":
+      return {
+        token: "", 
+        isLogin: false
+      };
     default:
       return state;
   }

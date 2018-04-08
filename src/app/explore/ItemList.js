@@ -13,7 +13,6 @@ class ItemList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchItems());
-    console.log(this.props)
   }
 
   handleClick = (id) => {

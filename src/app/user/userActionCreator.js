@@ -45,3 +45,7 @@ export const loginError = error => ({
     payload: error,
     success: false
 });
+
+export const logout = () => ({ 
+    type: "USER_LOGOUT"
+});

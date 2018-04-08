@@ -29,7 +29,7 @@
 
 #logo {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 600;
@@ -40,4 +40,8 @@
 .test {
   padding-top: 30em;
   padding-bottom: 30em;
+}
+
+.down {
+  padding: 8.5px;
 }

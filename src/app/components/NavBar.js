@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import LoginSignup from '../user/LoginSignup'
-import { Menu, Container, Modal, Button } from 'semantic-ui-react'
+import UserProfile from './UserProfile'
+import { Menu, Container } from 'semantic-ui-react'
 
 const NavBar = props => (
   <Menu
     fixed={props.fixed ? "top" : null}
     inverted={!props.fixed}
-    pointing={!props.fixed}
     secondary={!props.fixed}
     borderless
   >
@@ -38,12 +37,7 @@ const NavBar = props => (
         {"Start a Campaign"}
       </Link>
       <Menu.Item position="right">
-        <Modal size="tiny" trigger={<Button className={!props.fixed ? "inverted" : "google plus"}>Log In</Button>}>
-          <LoginSignup isLogin={true} />
-        </Modal>
-        <Modal size="tiny" trigger={<Button className={!props.fixed ? "inverted" : "primary"} style={{ marginLeft: "0.5em" }}>Sign Up</Button>}>
-          <LoginSignup isLogin={false} />
-        </Modal>
+        <UserProfile fixed={props.fixed} />
       </Menu.Item>
     </Container>
   </Menu>

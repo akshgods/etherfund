@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from "react-redux";
 import { fetchItems } from "../explore/exploreActionCreator";
 import { Responsive, Visibility, Segment } from 'semantic-ui-react'

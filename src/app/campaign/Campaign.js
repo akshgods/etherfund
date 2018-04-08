@@ -6,7 +6,7 @@ import {Container} from "semantic-ui-react";
 const Campaign = () => (
   <div>
     <NavBar active="campaign" fixed={true} />
-    <div style={{ paddingTop: "5em" }}>
+    <div style={{ paddingTop: "6em" }}>
       <Container>
         <Tab />
       </Container>

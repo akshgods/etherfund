@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 const Explore = () => (
   <div>
     <NavBar active="explore" fixed={true} />
-    <div style={{paddingTop: '5em'}}>
+    <div style={{paddingTop: '6em'}}>
       <ItemList />
     </div>
   </div>
