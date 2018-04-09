@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form } from "semantic-ui-react";
+import { Container, Form, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { changeTab, saveChange } from "./formActionCreator";
 
@@ -10,6 +10,7 @@ const options = [
 
 const mapStateToProps = state => ({
   items: state.form.items,
+  isLogin: state.auth.isLogin
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -33,7 +34,7 @@ class TargetForm extends React.Component {
   };
 
   handleClick = () => {
-    if (this.state.title !== "") {
+    if (this.state.title !== "" && this.props.isLogin) {
       this.props.onButtonClick(this.state);
       this.props.onTabChange(1);
     }
@@ -41,6 +42,8 @@ class TargetForm extends React.Component {
 
   render() {
     const { target, title, currency } = this.state;
+    const isLogin = this.props.isLogin;
+    console.log(isLogin)
 
     return (
       <Container textAlign="left">
@@ -73,6 +76,12 @@ class TargetForm extends React.Component {
             value={title}
             placeholder="Campaign title..."
           />
+          {isLogin ? "" :
+            <Message
+              negative
+              compact
+              content='Please Log In before continue'
+            />}
           <Form.Button type="submit" color="green" onClick={this.handleClick}>
             Save & Continue
           </Form.Button>

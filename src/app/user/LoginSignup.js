@@ -108,7 +108,7 @@ class LoginSignup extends React.Component{
                   </div>}
               </Segment>
             </Form>
-            <Message>
+            <Message warning>
               {isLogin ? <div>
                   New to us? <Label onClick={this.handleClick}>
                     Sign Up

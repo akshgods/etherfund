@@ -12,6 +12,8 @@ const options = [
 
 const mapStateToProps = state => ({
   items: state.form.items,
+  firstName: state.auth.userInfo.firstName,
+  lastName: state.auth.userInfo.lastName
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -41,7 +43,6 @@ class BasicForm extends React.Component {
 
   render() {
     const {
-      runner,
       benefactor,
       description,
       city,
@@ -50,6 +51,8 @@ class BasicForm extends React.Component {
       duration
     } = this.state;
 
+    const runner = this.props.firstName + " " + this.props.lastName
+
     const { title } = this.props.items
 
     return <Container textAlign="left">
@@ -57,7 +60,7 @@ class BasicForm extends React.Component {
         <Form>
           <Form.Input fluid label="Campaign Title" name="title" placeholder="Campaign title..." value={title} required />
 
-          <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} onChange={this.handleChange} required />
+          <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} required />
 
           <Form.Input label="The Benefactor" name="benefactor" placeholder="Benefactor..." value={benefactor} onChange={this.handleChange} required />
 
