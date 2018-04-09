@@ -1,4 +1,4 @@
-import { postImage } from "../../utils/data/API";
+import { postImage, postRequest } from "../../utils/data/API";
 
 export function uploadImage(file) {
   return dispatch => {
@@ -8,6 +8,19 @@ export function uploadImage(file) {
         dispatch(uploadImageSuccess(response.data.secure_url));
       })
       .catch(error => dispatch(uploadImageError(error)));
+  }
+}
+
+export function postCampaign(data, token) {
+  const url = '/api/item'
+  return dispatch => {
+    dispatch(postCampaignBegin());
+    return postRequest(url, data, token)
+      .then(response => {
+        console.log(response)
+        dispatch(postCampaignSuccess(response));
+      })
+      .catch(error => dispatch(postCampaignError(error)));
   }
 }
 
@@ -38,5 +51,20 @@ export const uploadImageSuccess = fileURL => ({
 
 export const uploadImageError = error => ({
   type: "UPLOAD_IMAGE_FAILURE",
+  payload: { error, status: "failed" }
+});
+
+export const postCampaignBegin = () => ({
+  type: "POST_CAMPAIGN_BEGIN",
+  payload: { status: "started" }
+});
+
+export const postCampaignSuccess = () => ({
+  type: "POST_CAMPAIGN_SUCCESS",
+  payload: { status: "posted"}
+});
+
+export const postCampaignError = error => ({
+  type: "POST_CAMPAIGN_FAILURE",
   payload: { error, status: "failed" }
 });

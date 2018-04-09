@@ -2,23 +2,28 @@ import React from "react";
 import { Container, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ItemMain from "../explore/ItemMain"
-//import { postItem } from "./formActionCreator";
+import { postCampaign } from "./formActionCreator";
 
 const mapStateToProps = state => ({
   items: state.form.items,
-  images: state.form.images
+  images: state.form.images,
+  postStatus: state.form.postStatus,
+  token: state.auth.token,
+  runner_id: state.auth.userInfo.userId
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSubmitClick(data) {
-    dispatch()
+  onSubmitClick(data, token) {
+    dispatch(postCampaign(data, token));
   }
 })
 
 class PreviewForm extends React.Component {
 
-  handleClick = () => {
-    this.props.onSubmitClick()
+  handleClick = (e) => {
+    e.preventDefault()
+    const item = {...this.props.items, ...this.props.images, runner_id: this.props.runner_id}
+    this.props.onSubmitClick(item, this.props.token)
   }
 
   render() {
@@ -26,7 +31,7 @@ class PreviewForm extends React.Component {
     return <Container textAlign="left">
         <ItemMain { ...this.props.items} { ...this.props.images } />
 
-        <Button type="submit" color="green" onClick={this.handleClick}>
+        <Button color="green" onClick={this.handleClick}>
           Submit
         </Button>
       </Container>;

@@ -18,13 +18,18 @@ const initialState = {
   },
   activeTab: 0,
   imageStatus: "empty",
+  postStatus: null,
   error: null
 };
 
 export default function exploreReducer(state = initialState, action) {
   switch (action.type) {
     case "UPLOAD_IMAGE_BEGIN":
-      return { ...state, imageStatus: action.payload.status, error: null };
+      return { 
+        ...state, 
+        imageStatus: action.payload.status, 
+        error: null 
+      };
 
     case "UPLOAD_IMAGE_SUCCESS":
       if (state.activeTab === 1) {
@@ -44,6 +49,26 @@ export default function exploreReducer(state = initialState, action) {
       return {
         ...state,
         imageStatus: action.payload.status,
+        error: action.payload.error
+      };
+
+    case "POST_CAMPAIGN_BEGIN":
+      return { ...state, 
+        postStatus: action.payload.status, 
+        error: null 
+      };
+
+    case "POST_CAMPAIGN_SUCCESS":
+      return {
+        ...state,
+        postStatus: action.payload.status,
+        images: { ...state.images, storyImgUrl: action.payload.fileURL }
+      };
+
+    case "POST_CAMPAIGN_FAILURE":
+      return {
+        ...state,
+        postStatus: action.payload.status,
         error: action.payload.error
       };
 

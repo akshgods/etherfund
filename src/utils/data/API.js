@@ -19,6 +19,14 @@ export function userSignup(user) {
     .post('/auth/signup', user)
 }
 
+export function postRequest(url, data, token) {
+  const header = token ? {
+        headers: { "Authorization": "bearer " + token }
+      } : null;
+  return axios
+    .post(url, data, header)
+}
+
 export function postImage(imgFile) {
   const formData = new FormData()
   formData.append("file", imgFile);
