@@ -88,7 +88,7 @@ class LoginSignup extends React.Component{
             <Form size="large">
               <Segment stacked>
                 {success ? <Message positive content={response} /> : ""}
-                {success === false ? <Message negative content={response} /> : ""}
+                {success === false ? <Message negative list={Object.values(response)} /> : ""}
                 {isLogin ? "" : <Form.Input fluid icon="user" iconPosition="left" placeholder="First Name" name="firstName" value={firstName} onChange={this.handleChange} />}
                 {isLogin ? "" : <Form.Input fluid icon="user" iconPosition="left" placeholder="Last Name" name="lastName" value={lastName} onChange={this.handleChange} />}
                 <Form.Input fluid icon="mail" iconPosition="left" placeholder="E-mail address" name="email" value={email} onChange={this.handleChange} />

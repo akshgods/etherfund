@@ -1,11 +1,13 @@
-import { fetchData } from "../../utils/data/API";
+import { getRequest } from "../../utils/data/API";
 
 export function fetchItems() {
+  const url = '/open/item'
   return dispatch => {
     dispatch(fetchItemsBegin());
-    return fetchData()
+    return getRequest(url)
       .then(response => {
-        dispatch(fetchItemsSuccess(response));
+        console.log(response)
+        dispatch(fetchItemsSuccess(response.data.rows));
         return response;
       })
       .catch(error => dispatch(fetchItemsError(error)));

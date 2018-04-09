@@ -7,6 +7,7 @@ import history from "../../utils/history"
 
 const mapStateToProps = state => ({
   items: state.items,
+  token: state.auth.token
 });
 
 class ItemList extends React.Component {

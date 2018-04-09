@@ -17,8 +17,8 @@ export function postCampaign(data, token) {
     dispatch(postCampaignBegin());
     return postRequest(url, data, token)
       .then(response => {
-        console.log(response)
         dispatch(postCampaignSuccess(response));
+        dispatch(resetForm());
       })
       .catch(error => dispatch(postCampaignError(error)));
   }
@@ -37,6 +37,10 @@ export const dropImage = () => ({
 export const saveChange = items => ({
   type: "SAVE_CHANGE",
   payload: { items }
+});
+
+export const resetForm = () => ({
+  type: "RESET_FORM"
 });
 
 export const uploadImageBegin = () => ({

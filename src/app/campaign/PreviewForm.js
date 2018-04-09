@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Icon, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ItemMain from "../explore/ItemMain"
 import { postCampaign } from "./formActionCreator";
@@ -27,12 +27,22 @@ class PreviewForm extends React.Component {
   }
 
   render() {
+    const status = this.props.postStatus;
+
+    if(status === "posted") {
+      return <Container textAlign="left">
+          <Header as='h2' content='Submission Success!' subheader='Congratulations! Your campaign has been posted. ' />
+        </Container>;
+    }
 
     return <Container textAlign="left">
         <ItemMain { ...this.props.items} { ...this.props.images } />
 
         <Button color="green" onClick={this.handleClick}>
-          Submit
+          { status === "started" ?
+            <Icon loading name='spinner' />
+            :
+            <Icon name='send' /> } Submit
         </Button>
       </Container>;
   }

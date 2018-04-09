@@ -25,10 +25,10 @@ const initialState = {
 export default function exploreReducer(state = initialState, action) {
   switch (action.type) {
     case "UPLOAD_IMAGE_BEGIN":
-      return { 
-        ...state, 
-        imageStatus: action.payload.status, 
-        error: null 
+      return {
+        ...state,
+        imageStatus: action.payload.status,
+        error: null
       };
 
     case "UPLOAD_IMAGE_SUCCESS":
@@ -53,9 +53,9 @@ export default function exploreReducer(state = initialState, action) {
       };
 
     case "POST_CAMPAIGN_BEGIN":
-      return { ...state, 
-        postStatus: action.payload.status, 
-        error: null 
+      return { ...state,
+        postStatus: action.payload.status,
+        error: null
       };
 
     case "POST_CAMPAIGN_SUCCESS":
@@ -84,6 +84,9 @@ export default function exploreReducer(state = initialState, action) {
 
     case "SAVE_CHANGE":
       return { ...state, items: { ...state.items, ...action.payload.items } };
+
+    case "RESET_FORM":
+      return { ...state, items: { ...initialState.items }, images: { ...initialState.images }, imageStatus: "empty" };
 
     default:
       return state;

@@ -37,7 +37,7 @@ class BasicForm extends React.Component {
   };
 
   handleClick = () => {
-    this.props.onButtonClick(this.state)
+    this.props.onButtonClick({...this.state, runner: this.props.firstName + " " + this.props.lastName})
     this.props.onTabChange(2)
   }
 

@@ -7,8 +7,9 @@ export function signup(user) {
         dispatch(signupSuccess(response.data));
       })
       .catch(error => {
-        dispatch(signupError("Sign Up Failed"))
-      });
+        console.log(error.response.data.errors)
+        dispatch(signupError(error.response.data.errors))
+      })
   };
 }
 
@@ -19,33 +20,33 @@ export function login(user) {
         dispatch(loginSuccess(response.data));
       })
       .catch(error => {
-        dispatch(loginError("Log In Failed"))
+        dispatch(loginError(error.response.data))
       });
   };
 }
 
-export const signupSuccess = data => ({ 
-    type: "USER_SIGNUP_SUCCESS", 
+export const signupSuccess = data => ({
+    type: "USER_SIGNUP_SUCCESS",
     payload: data,
 });
 
-export const signupError = error => ({ 
-    type: "USER_SIGNUP_FAILURE", 
+export const signupError = error => ({
+    type: "USER_SIGNUP_FAILURE",
     payload: error,
     success: false
 });
 
-export const loginSuccess = data => ({ 
-    type: "USER_LOGIN_SUCCESS", 
+export const loginSuccess = data => ({
+    type: "USER_LOGIN_SUCCESS",
     payload: data,
 });
 
-export const loginError = error => ({ 
-    type: "USER_LOGIN_FAILURE", 
+export const loginError = error => ({
+    type: "USER_LOGIN_FAILURE",
     payload: error,
     success: false
 });
 
-export const logout = () => ({ 
+export const logout = () => ({
     type: "USER_LOGOUT"
 });

@@ -19,6 +19,14 @@ export function userSignup(user) {
     .post('/auth/signup', user)
 }
 
+export function getRequest(url, token) {
+  const header = token ? {
+        headers: { "Authorization": "bearer " + token }
+      } : null;
+  return axios
+    .get(url, header)
+}
+
 export function postRequest(url, data, token) {
   const header = token ? {
         headers: { "Authorization": "bearer " + token }
