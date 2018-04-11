@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchItems } from "../explore/exploreActionCreator";
-import { Responsive, Visibility, Segment } from 'semantic-ui-react'
+import { Visibility, Segment } from 'semantic-ui-react'
 import HomeHeading from './HomeHeading'
 import NavBar from '../components/NavBar'
 

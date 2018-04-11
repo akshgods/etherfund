@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Container, Button } from 'semantic-ui-react'
+import { Header, Container } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const HomeHeading = ({ mobile }) => (
