@@ -1,7 +1,9 @@
 const initialState = {
   items: [],
   loading: false,
-  error: null
+  error: null,
+  itemCount: 0,
+  itemFilter: "all"
 };
 
 export default function exploreReducer(state = initialState, action) {
