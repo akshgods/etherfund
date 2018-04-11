@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "./exploreActionCreator";
-import { Grid, Container, Card, Loader, Dimmer, Input } from "semantic-ui-react";
+import { Grid, Container, Card, Loader, Dimmer, Input, Divider } from "semantic-ui-react";
 import ItemCard from "./ItemCard";
+import Filter from "./Filter";
 import history from "../../utils/history"
 
 const mapStateToProps = state => ({
@@ -24,7 +25,8 @@ class ItemList extends React.Component {
     const { error, loading, items } = this.props.items;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      console.log(error.message)
+      return <div>Error! No Item Found</div>;
     }
 
     if (loading && items.length === 0){
@@ -37,11 +39,14 @@ class ItemList extends React.Component {
 
     return <Container>
         <Grid>
-          <Grid.Column width={4}>{"Filters"}</Grid.Column>
+          <Grid.Column width={4}>
+            <div>
+              <Filter />
+            </div>
+          </Grid.Column>
           <Grid.Column width={12}>
-            <Container style={{ padding: "0em 0em 1em" }}>
-              <Input action={{ color: "grey", labelPosition: "left", icon: "search", content: "Search" }} actionPosition="left" placeholder="Search..." fluid />
-            </Container>
+            <Input action={{ color: "grey", labelPosition: "left", icon: "search", content: "Search" }} actionPosition="left" placeholder="Search..." fluid />
+            <Divider hidden />
             <Card.Group itemsPerRow={3}>
               {items.map(item => (
                 <ItemCard

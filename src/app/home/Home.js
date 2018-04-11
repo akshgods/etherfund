@@ -1,12 +1,13 @@
 import React from "react";
 import HomeContainer from "./HomeContainer";
-import TestComponent from "../test/TestComponent"
+import Marketing from "./Marketing"
+import { Container } from 'semantic-ui-react'
 
 const Home = () =>
   <HomeContainer>
-      <div className="test">
-        <TestComponent />
-      </div>
+    <Container className="homeContent">
+      <Marketing />
+    </Container>
   </HomeContainer>
 
 

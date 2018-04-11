@@ -3,7 +3,7 @@ import { Header, Container, Button } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const HomeHeading = ({ mobile }) => (
-  <Container>
+  <Container id="jumbotron">
     <Header
       as="h1"
       content="Find, Fund and Have Fun"
@@ -27,9 +27,6 @@ const HomeHeading = ({ mobile }) => (
       <p>Blockchain based crowd funding platform</p>
       <p>Be part of the future, Be a backer and Get rewards</p>
     </Header>
-    <Button size="huge" primary>
-      SIGN UP NOW
-    </Button>
   </Container>
 );
 
