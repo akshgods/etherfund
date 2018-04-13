@@ -20,6 +20,8 @@ const ItemMain = (props) => {
     startDate = Date()
   } = props;
 
+  const { children } = props;
+
   const dayLeft = parseInt( ((new Date(startDate) - new Date()) / (24*60*60*1000)) + parseInt(duration, 10) , 10);
 
   return (
@@ -91,6 +93,7 @@ const ItemMain = (props) => {
           </Header>
           <Image src={storyImgUrl} centered fluid bordered rounded />
           <p>{story}</p>
+          {children}
         </div>
       </Grid.Column>
     </Grid.Row>
