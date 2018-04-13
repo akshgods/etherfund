@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./home/Home";
 import About from "./about/About";
+import Wallet from "./wallet/Wallet";
 import Explore from "./explore/Explore";
 import SingleItem from "./explore/SingleItem";
 import Campaign from "./campaign/Campaign";
@@ -35,6 +36,7 @@ class App extends Component {
               <Route path="/explore/:id" component={SingleItem} />
               <Route path="/campaign" component={Campaign} />
               <Route path="/about" component={About} />
+              <Route path="/wallet" component={Wallet} />
             </div>
           </ConnectedRouter>
         </div>

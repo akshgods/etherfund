@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
                 <Link className="item" to="/explore">
                   {"My Contributions"}
                 </Link>
-                <Link className="item" to="/explore">
+                <Link className="item" to="/wallet">
                   {"My Wallet"}
                 </Link>
                 <Link className="item" to="/explore">
