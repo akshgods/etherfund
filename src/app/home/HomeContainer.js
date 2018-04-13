@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchItems } from "../explore/exploreActionCreator";
-import { web3 } from "../../utils/web3/Web3ActionCreator";
+import { InitiateWeb3 } from "../../utils/web3/Web3ActionCreator";
 import { Visibility, Segment } from 'semantic-ui-react'
 import HomeHeading from './HomeHeading'
 import NavBar from '../components/NavBar'
@@ -14,7 +14,7 @@ class HomeContainer extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchItems());
-    this.props.dispatch(web3());
+    this.props.dispatch(InitiateWeb3());
   }
 
   render() {

@@ -1,6 +1,6 @@
-import { getWeb3 } from "./getWeb3";
+import { web3, getWeb3 } from "./getWeb3";
 
-export function web3() {
+export function InitiateWeb3() {
   return dispatch => {
     return getWeb3()
       .then(response => {

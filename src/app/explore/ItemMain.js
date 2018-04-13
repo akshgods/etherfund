@@ -7,7 +7,7 @@ const ItemMain = (props) => {
     currency,
     target,
     runner,
-    benefactor,
+    beneficiary,
     description,
     city,
     country,
@@ -53,8 +53,8 @@ const ItemMain = (props) => {
           <List.Item>
             <Label basic>
               <Icon name="like" />
-              Benefactor
-              <Label.Detail>{benefactor}</Label.Detail>
+              Beneficiary
+              <Label.Detail>{beneficiary}</Label.Detail>
             </Label>
           </List.Item>
         </List>

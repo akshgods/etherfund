@@ -43,7 +43,7 @@ class BasicForm extends React.Component {
 
   render() {
     const {
-      benefactor,
+      beneficiary,
       description,
       city,
       country,
@@ -62,7 +62,7 @@ class BasicForm extends React.Component {
 
           <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} required />
 
-          <Form.Input label="The Benefactor" name="benefactor" placeholder="Benefactor..." value={benefactor} onChange={this.handleChange} required />
+          <Form.Input label="The Beneficiary" name="beneficiary" placeholder="Beneficiary..." value={beneficiary} onChange={this.handleChange} required />
 
           <Form.TextArea autoHeight label="Description" name="description" placeholder="Campaign description..." value={description} onChange={this.handleChange} required />
 

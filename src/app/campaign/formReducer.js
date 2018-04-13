@@ -4,7 +4,7 @@ const initialState = {
     title: "",
     currency: "ETH",
     runner: "",
-    benefactor: "",
+    beneficiary: "",
     description: "",
     city: "",
     country: "",

@@ -17,7 +17,7 @@ import { loadState, saveState } from "../utils/localStorage";
 
 const presistedState = loadState();
 
-export const store = configureStore(presistedState);
+const store = configureStore(presistedState);
 
 store.subscribe(throttle(() => {
   saveState({
