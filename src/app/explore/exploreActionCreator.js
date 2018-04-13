@@ -6,7 +6,6 @@ export function fetchItems() {
     dispatch(fetchItemsBegin());
     return getRequest(url)
       .then(response => {
-        console.log(response)
         dispatch(fetchItemsSuccess(response.data.rows));
         return response;
       })

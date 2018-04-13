@@ -14,9 +14,9 @@ import throttle from "lodash/throttle";
 
 import { loadState, saveState } from "../utils/localStorage";
 
-const presistedState = loadState(); 
+const presistedState = loadState();
 
-const store = configureStore(presistedState);
+export const store = configureStore(presistedState);
 
 store.subscribe(throttle(() => {
   saveState({
