@@ -8,12 +8,14 @@ const web3Reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         web3Instance: action.payload.web3Instance.eth
       });
-    case "WEB3_GET_BALANCE":
+    case "WEB3_BALANCE_UPDATED":
       return Object.assign({}, state, {
         balance: action.payload
       });
-    case "WEB3_MAKE_TRANSCATION":
-      return {...state}
+    case "WEB3_TRANSCATION_MADE":
+      return Object.assign({}, state, {
+        block: action.payload
+      });
 
     default:
       return state;

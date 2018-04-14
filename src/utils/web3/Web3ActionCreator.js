@@ -20,7 +20,7 @@ export function web3GetBalance(account) {
 
 export function web3SendTransaction(data) {
   return dispatch => {
-    return dispatch(web3MakeTransaction())
+    return dispatch(web3MakeTransaction(data))
   }
 }
 
@@ -33,13 +33,14 @@ export const web3Initialized = results => {
 
 export const web3UpdateBalance = results => {
   return {
-    type: 'WEB3_GET_BALANCE',
+    type: 'WEB3_BALANCE_UPDATED',
     payload: web3.utils.fromWei(results, "ether")
   }
 }
 
-export const web3MakeTransaction = () => {
+export const web3MakeTransaction = receipt => {
   return {
-    type: 'WEB3_MAKE_TRANSCATION'
+    type: 'WEB3_TRANSCATION_MADE',
+    payload: receipt
   }
 }
