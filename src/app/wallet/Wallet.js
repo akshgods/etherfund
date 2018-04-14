@@ -3,9 +3,19 @@ import { connect } from "react-redux";
 import NavBar from "../components/NavBar";
 import { Input, Button, Statistic, Popup, Grid, Modal, Message } from "semantic-ui-react";
 import { web3 } from "../../utils/web3/getWeb3"
+import { web3GetBalance, web3SendTransaction } from "../../utils/web3/Web3ActionCreator";
 
 const mapStateToProps = state => ({
-  web3: state.web3.web3Instance,
+  balance: state.web3.balance,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onBalanceCheck(account) {
+    dispatch(web3GetBalance(account));
+  },
+  onMakeTransaction() {
+    dispatch(web3SendTransaction());
+  }
 });
 
 class Wallet extends React.Component {
@@ -32,9 +42,7 @@ class Wallet extends React.Component {
   };
 
   handleClick = () => {
-    web3.eth.getBalance(this.state.account).then(res => {
-      this.setState({ balance: web3.utils.fromWei(res, "ether") });
-    });
+    this.props.onBalanceCheck(this.state.account);
   };
 
   handleTransfer = () => {
@@ -44,15 +52,17 @@ class Wallet extends React.Component {
       to: this.state.receipient,
       value: web3.utils.toWei(this.state.amount, "ether")
     }).then(receipt => {
+      this.props.onMakeTransaction();
       this.setState({message: "Transaction Completed!"})
       setTimeout(() => this.setState({message: null}), 3000);
-      console.log(receipt)
+      //console.log(receipt)
       this.setState({receipient: "", amount: 0})
     })
   }
 
   render() {
-    const { isLinked, balance, receipient, amount, message } = this.state;
+    const { isLinked, receipient, amount, message } = this.state;
+    const { balance } = this.props;
 
     return <div>
         <NavBar active="" fixed={true} />
@@ -97,4 +107,4 @@ class Wallet extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Wallet);
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
