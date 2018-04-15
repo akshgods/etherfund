@@ -81,7 +81,7 @@ export const postCampaignSuccess = res => ({
 
 export const AddCampaignContract = res => ({
   type: "ADD_CAMPAIGN_CONTRACT",
-  payload: { campaignAddress: res, status: "deployed"}
+  payload: { campaignAddress: res.contractAddress, status: "deployed"}
 });
 
 export const putCampaignError = error => ({

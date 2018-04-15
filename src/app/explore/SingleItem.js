@@ -25,7 +25,7 @@ class SingleItem extends React.Component {
           <Container textAlign='left' style={{paddingBottom: '1em'}}>
             <Link to="/explore"><Icon name='long arrow left' />{"Back to Main Page"}</Link>
           </Container>
-          <ItemMain { ...item[0] } />
+          <ItemMain { ...item[0] } demo={false} />
         </Container>
       </div>
     );

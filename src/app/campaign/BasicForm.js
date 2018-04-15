@@ -66,7 +66,7 @@ class BasicForm extends React.Component {
 
           <Form.Input label="The Beneficiary" name="beneficiary" placeholder="Beneficiary..." value={beneficiary} onChange={this.handleChange} required />
 
-          <Form.Input label="The Beneficiary ETH Account" name="beneAccount" placeholder="Beneficiary ETH Account..." value={beneAccount} onChange={this.handleChange} required />
+          <Form.Input label="The Beneficiary ETH Account (This is important!)" name="beneAccount" placeholder="Beneficiary ETH Account..." value={beneAccount} onChange={this.handleChange} required />
 
           <Form.TextArea autoHeight label="Description" name="description" placeholder="Campaign description..." value={description} onChange={this.handleChange} required />
 

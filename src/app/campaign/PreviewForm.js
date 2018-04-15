@@ -12,15 +12,17 @@ const mapStateToProps = state => ({
   postStatus: state.form.postStatus,
   token: state.auth.token,
   runner_id: state.auth.userInfo.userId,
-  campaignId: state.form.campaignId
+  campaignId: state.form.campaignId,
+  campaignAddress: state.form.campaignAddress,
+  isLoading: state.web3.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
   onSubmitClick(data, token) {
     dispatch(postCampaign(data, token));
   },
-  onDeployContract(data) {
-    dispatch(deployContract(data));
+  onDeployContract(data, token) {
+    dispatch(deployContract(data, token));
   }
 });
 
@@ -40,6 +42,14 @@ class PreviewForm extends React.Component {
 
   render() {
     const status = this.props.postStatus;
+    const contractAddress = this.props.campaignAddress;
+    const isLoading = this.props.isLoading;
+
+    if(status === "deployed") {
+      return <Container textAlign="left">
+          <Header as="h2" content="Contract Deployment Success!" subheader={"Congratulations! Your smart contract is created. Contract Address: " + contractAddress} />
+        </Container>;
+    }
 
     if(status === "posted") {
       return <Container textAlign="left">
@@ -71,14 +81,14 @@ class PreviewForm extends React.Component {
               </Table.Row>
             </Table.Body>
           </Table>
-          <Button primary onClick={this.handleDeploy}>
-            <Icon name="cube" /> Deploy Contract
+          <Button primary onClick={this.handleDeploy} disabled={isLoading ? true : false}>
+            {isLoading ? <span><Icon loading name="spinner" />{"Deploying"}</span> : <span><Icon name="cube" />{"Deploy Contract"}</span> }
           </Button>
         </Container>;
     }
 
     return <Container textAlign="left">
-        <ItemMain { ...this.props.items} { ...this.props.images } />
+        <ItemMain { ...this.props.items} { ...this.props.images } demo={true}  />
 
         <Button color="green" onClick={this.handleClick}>
           { status === "started" ?

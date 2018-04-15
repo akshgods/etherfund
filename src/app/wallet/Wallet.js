@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import NavBar from "../components/NavBar";
-import { Input, Button, Statistic, Popup, Grid, Modal, Message, Segment, Container } from "semantic-ui-react";
+import { Input, Button, Statistic, Grid, Modal, Message, Segment, Container } from "semantic-ui-react";
 import { web3 } from "../../utils/web3/getWeb3"
 import { web3GetBalance, web3SendTransaction, web3GetAccount } from "../../utils/web3/Web3ActionCreator";
 
@@ -28,7 +28,8 @@ class Wallet extends React.Component {
     account: "",
     receipient: "",
     amount: 0,
-    message: null
+    message: null,
+    clicked: false
   };
 
   componentDidMount() {
@@ -54,23 +55,28 @@ class Wallet extends React.Component {
 
   handleTransfer = () => {
     if(this.state.account && this.state.receipient)
+    this.setState({ clicked: true });
     web3.eth.sendTransaction({
       from: this.state.account,
       to: this.state.receipient,
       value: web3.utils.toWei(this.state.amount, "ether")
-    }).then(receipt => {
+    })
+    .on('error', err => {
+      console.log(err)
+      return this.setState({ clicked: false });
+    }) // If a out of gas error, the second parameter is the receipt.
+    .then(receipt => {
       this.props.onMakeTransaction(receipt);
-      this.setState({message: "Transaction Completed!"})
+      this.setState({receipient: "", amount: 0, message: "Transaction Completed!", clicked: false})
       setTimeout(() => {
         this.setState({message: null});
         this.props.onBalanceCheck(this.state.account);
       }, 5000);
-      this.setState({receipient: "", amount: 0})
     })
   }
 
   render() {
-    const { isLinked, receipient, amount, message } = this.state;
+    const { isLinked, receipient, amount, message, clicked } = this.state;
     const { balance } = this.props;
 
     return <div>
@@ -105,7 +111,7 @@ class Wallet extends React.Component {
                     </Grid.Row>
                     <Grid.Row>
                       <Grid.Column>
-                        <Popup style={{ color: "red" }} trigger={<Button color="red" onClick={this.handleTransfer} content="Submit" fluid />} content="When it goes away, it will never come back. So be careful!" position="bottom center" size="tiny" />
+                        <Button color="red" onClick={this.handleTransfer} loading={clicked} disabled={clicked} content="Submit" fluid />
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>

@@ -17,10 +17,11 @@ const ItemMain = (props) => {
     story,
     cardImgUrl,
     storyImgUrl,
-    startDate = Date()
+    startDate = Date(),
+    backerCount = 0
   } = props;
 
-  const { children } = props;
+  const { children, demo } = props;
 
   const dayLeft = parseInt( ((new Date(startDate) - new Date()) / (24*60*60*1000)) + parseInt(duration, 10) , 10);
 
@@ -59,7 +60,7 @@ const ItemMain = (props) => {
           </List.Item>
         </List>
         <div>
-          <h3>{raised} {currency} raised by 0 backers</h3>
+          <h3>{raised} {currency} raised by {backerCount} backers</h3>
           <Progress percent={ parseInt(raised * 100 / target, 10) } progress indicating>
             <Grid>
               <Grid.Column floated="left" textAlign="left" width={8}>
@@ -73,7 +74,7 @@ const ItemMain = (props) => {
         </div>
         <Divider hidden />
         <div>
-          <Button color="pink">BACK IT</Button>
+          <Button color="pink" disabled={demo ? true : false} >BACK IT</Button>
           <Button circular floated="right" color="teal" icon="mail" />
           <Button circular floated="right" color="twitter" icon="twitter" />
           <Button circular floated="right" color="facebook" icon="facebook" />
