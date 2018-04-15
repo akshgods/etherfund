@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import NavBar from "../components/NavBar";
 import { Input, Button, Statistic, Popup, Grid, Modal, Message, Segment, Container } from "semantic-ui-react";
 import { web3 } from "../../utils/web3/getWeb3"
-import { web3GetBalance, web3SendTransaction } from "../../utils/web3/Web3ActionCreator";
+import { web3GetBalance, web3SendTransaction, web3GetAccount } from "../../utils/web3/Web3ActionCreator";
 
 const mapStateToProps = state => ({
   balance: state.web3.balance,
@@ -12,6 +12,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onBalanceCheck(account) {
     dispatch(web3GetBalance(account));
+  },
+  onAccountLink(account) {
+    dispatch(web3GetAccount(account));
   },
   onMakeTransaction(receipt) {
     dispatch(web3SendTransaction(receipt));
@@ -23,7 +26,6 @@ class Wallet extends React.Component {
     isLinked: false,
     key: "",
     account: "",
-    balance: 0,
     receipient: "",
     amount: 0,
     message: null
@@ -33,6 +35,7 @@ class Wallet extends React.Component {
     web3.eth.getAccounts().then(res => {
       if (res.length > 0) {
         this.setState({ account: res[0].toString(), isLinked: true });
+        this.props.onAccountLink(res[0].toString())
         setTimeout(() => {
           this.props.onBalanceCheck(this.state.account);
         }, 1000);

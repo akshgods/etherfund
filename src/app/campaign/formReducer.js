@@ -5,6 +5,7 @@ const initialState = {
     currency: "ETH",
     runner: "",
     beneficiary: "",
+    beneAccount: "",
     description: "",
     city: "",
     country: "",
@@ -62,7 +63,7 @@ export default function exploreReducer(state = initialState, action) {
       return {
         ...state,
         postStatus: action.payload.status,
-        images: { ...state.images, storyImgUrl: action.payload.fileURL }
+        campaignId: action.payload.campaignId
       };
 
     case "POST_CAMPAIGN_FAILURE":

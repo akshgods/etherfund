@@ -1,4 +1,4 @@
-import { postImage, postRequest } from "../../utils/data/API";
+import { postImage, postRequest, putRequest } from "../../utils/data/API";
 
 export function uploadImage(file) {
   return dispatch => {
@@ -18,9 +18,20 @@ export function postCampaign(data, token) {
     return postRequest(url, data, token)
       .then(response => {
         dispatch(postCampaignSuccess(response));
-        dispatch(resetForm());
       })
       .catch(error => dispatch(postCampaignError(error)));
+  }
+}
+
+export function updateCampaign(id, data, token) {
+  const url = '/api/item/'+id
+  return dispatch => {
+    return putRequest(url, data, token)
+      .then(response => {
+        dispatch(AddCampaignContract(data));
+        dispatch(resetForm());
+      })
+      .catch(error => dispatch(putCampaignError(error)));
   }
 }
 
@@ -63,9 +74,19 @@ export const postCampaignBegin = () => ({
   payload: { status: "started" }
 });
 
-export const postCampaignSuccess = () => ({
+export const postCampaignSuccess = res => ({
   type: "POST_CAMPAIGN_SUCCESS",
-  payload: { status: "posted"}
+  payload: { campaignId: res.data.campaignId, status: "posted"}
+});
+
+export const AddCampaignContract = res => ({
+  type: "ADD_CAMPAIGN_CONTRACT",
+  payload: { campaignAddress: res, status: "deployed"}
+});
+
+export const putCampaignError = error => ({
+  type: "PUT_CAMPAIGN_FAILURE",
+  payload: { error, status: "failed" }
 });
 
 export const postCampaignError = error => ({

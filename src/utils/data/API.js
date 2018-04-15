@@ -35,6 +35,14 @@ export function postRequest(url, data, token) {
     .post(url, data, header)
 }
 
+export function putRequest(url, data, token) {
+  const header = token ? {
+        headers: { "Authorization": "bearer " + token }
+      } : null;
+  return axios
+    .put(url, data, header)
+}
+
 export function postImage(imgFile) {
   const formData = new FormData()
   formData.append("file", imgFile);

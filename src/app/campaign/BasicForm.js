@@ -36,7 +36,8 @@ class BasicForm extends React.Component {
     this.setState({ category: value });
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault()
     this.props.onButtonClick({...this.state, runner: this.props.firstName + " " + this.props.lastName})
     this.props.onTabChange(2)
   }
@@ -44,6 +45,7 @@ class BasicForm extends React.Component {
   render() {
     const {
       beneficiary,
+      beneAccount,
       description,
       city,
       country,
@@ -63,6 +65,8 @@ class BasicForm extends React.Component {
           <Form.Input label="The Runner" name="runner" placeholder="Runner..." value={runner} required />
 
           <Form.Input label="The Beneficiary" name="beneficiary" placeholder="Beneficiary..." value={beneficiary} onChange={this.handleChange} required />
+
+          <Form.Input label="The Beneficiary ETH Account" name="beneAccount" placeholder="Beneficiary ETH Account..." value={beneAccount} onChange={this.handleChange} required />
 
           <Form.TextArea autoHeight label="Description" name="description" placeholder="Campaign description..." value={description} onChange={this.handleChange} required />
 

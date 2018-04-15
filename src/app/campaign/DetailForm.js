@@ -24,7 +24,8 @@ class DetailForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     this.props.onButtonClick(this.state)
     this.props.onTabChange(3)
   }

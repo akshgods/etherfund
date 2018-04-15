@@ -33,7 +33,8 @@ class TargetForm extends React.Component {
     this.setState({ currency: value });
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     if (this.state.title !== "" && this.props.isLogin) {
       this.props.onButtonClick(this.state);
       this.props.onTabChange(1);
@@ -43,7 +44,6 @@ class TargetForm extends React.Component {
   render() {
     const { target, title, currency } = this.state;
     const isLogin = this.props.isLogin;
-    console.log(isLogin)
 
     return (
       <Container textAlign="left">
