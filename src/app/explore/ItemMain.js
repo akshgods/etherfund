@@ -17,8 +17,7 @@ const ItemMain = (props) => {
     story,
     cardImgUrl,
     storyImgUrl,
-    startDate = Date(),
-    backerCount = 0
+    startDate = Date()
   } = props;
 
   const { children, demo, onClick, onChange, value, loading } = props;
@@ -60,7 +59,7 @@ const ItemMain = (props) => {
           </List>
           <div>
             <h3>
-              {raised} {currency} raised by {backerCount} backers
+              {raised} {currency} raised
             </h3>
             <Progress percent={parseInt(raised * 100 / target, 10)} progress indicating>
               <Grid>

@@ -19,6 +19,8 @@ export default function exploreReducer(state = initialState, action) {
       return { ...state, pending: true };
     case "CAMPAIGN_CONTRIBUTE_SUCCESS":
       return { ...state, pending: false, receipt: action.payload };
+    case "CAMPAIGN_CONTRIBUTE_FAILURE":
+      return { ...state, pending: false, error: action.payload };
     case "ITEMS_DATABASE_UPDATE_SUCCESS":
       return { ...state, receipt: action.payload.data };
     default:

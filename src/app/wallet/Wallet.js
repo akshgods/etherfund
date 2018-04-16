@@ -42,7 +42,7 @@ class Wallet extends React.Component {
         }, 1000);
       }
     });
-    
+
   }
 
   handleChange = e => {
@@ -54,25 +54,26 @@ class Wallet extends React.Component {
   };
 
   handleTransfer = () => {
-    if(this.state.account && this.state.receipient)
-    this.setState({ clicked: true });
-    web3.eth.sendTransaction({
-      from: this.state.account,
-      to: this.state.receipient,
-      value: web3.utils.toWei(this.state.amount, "ether")
-    })
-    .on('error', err => {
-      console.log(err)
-      return this.setState({ clicked: false });
-    }) // If a out of gas error, the second parameter is the receipt.
-    .then(receipt => {
-      this.props.onMakeTransaction(receipt);
-      this.setState({receipient: "", amount: 0, message: "Transaction Completed!", clicked: false})
-      setTimeout(() => {
-        this.setState({message: null});
-        this.props.onBalanceCheck(this.state.account);
-      }, 5000);
-    })
+    if(this.state.account && this.state.receipient && this.state.amount > 0){
+      this.setState({ clicked: true });
+      web3.eth.sendTransaction({
+        from: this.state.account,
+        to: this.state.receipient,
+        value: web3.utils.toWei(this.state.amount, "ether")
+      })
+      .on('error', err => {
+        console.log(err)
+        return this.setState({ clicked: false });
+      }) // If a out of gas error, the second parameter is the receipt.
+      .then(receipt => {
+        this.props.onMakeTransaction(receipt);
+        this.setState({receipient: "", amount: 0, message: "Transaction Completed!", clicked: false})
+        setTimeout(() => {
+          this.setState({message: null});
+          this.props.onBalanceCheck(this.state.account);
+        }, 5000);
+      })
+    }
   }
 
   render() {

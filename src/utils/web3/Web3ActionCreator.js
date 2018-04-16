@@ -63,19 +63,20 @@ export function ContributeContract(id, address, amount, token) {
         from: res[0],
         value: value
       })
+      .catch(error => dispatch(web3ContributeToContractFailure(error)))
       .then(receipt => {
         dispatch(web3ContributeToContractSuccess(receipt));
-        etherFundContract.methods.getBackerCount().call()
-          .then(res => console.log(res))
         const url = "/api/item/fund/" + id;
         const data = {
-          contractAddress: address
+          contractAddress: address,
+          user: res[0]
         };
         putRequest(url, data, token)
         .then(res => {
           dispatch(updateCampaignDatabase(res));
           dispatch(fetchItems())
         })
+        .catch(error => dispatch(web3ContributeToContractFailure(error)))
       })
     })
   }
@@ -141,6 +142,14 @@ export const web3ContributeToContractSuccess = data => {
   return {
     type: 'CAMPAIGN_CONTRIBUTE_SUCCESS',
     payload: data,
+    posting: false
+  }
+}
+
+export const web3ContributeToContractFailure = error => {
+  return {
+    type: 'CAMPAIGN_CONTRIBUTE_FAILURE',
+    payload: { error },
     posting: false
   }
 }
