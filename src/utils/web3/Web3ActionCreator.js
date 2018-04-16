@@ -65,7 +65,7 @@ export function ContributeContract(id, address, amount, token) {
       })
       .then(receipt => {
         dispatch(web3ContributeToContractSuccess(receipt));
-        etherFundContract.methods.contributions(1).call()
+        etherFundContract.methods.getBackerCount().call()
           .then(res => console.log(res))
         const url = "/api/item/fund/" + id;
         const data = {
