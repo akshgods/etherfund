@@ -5,7 +5,6 @@ import ItemMain from "../explore/ItemMain"
 import { postCampaign } from "./formActionCreator";
 import { deployContract } from "../../utils/web3/Web3ActionCreator";
 
-
 const mapStateToProps = state => ({
   items: state.form.items,
   images: state.form.images,

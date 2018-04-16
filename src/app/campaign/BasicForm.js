@@ -3,6 +3,7 @@ import { Container, Form, Dropdown } from "semantic-ui-react";
 import DropZone from "./DropZone";
 import { connect } from "react-redux";
 import { changeTab, saveChange } from "./formActionCreator";
+import moment from "moment";
 
 const options = [
   { key: "tech", text: "TECH & INNOVATION", value: "Tech & Innovation" },
@@ -53,9 +54,9 @@ class BasicForm extends React.Component {
       duration
     } = this.state;
 
-    const runner = this.props.firstName + " " + this.props.lastName
-
-    const { title } = this.props.items
+    const runner = this.props.firstName + " " + this.props.lastName;
+    const { title } = this.props.items;
+    const dueDate = moment().add(duration, 'days').calendar(); 
 
     return <Container textAlign="left">
         <h2>Basics</h2>
@@ -88,10 +89,7 @@ class BasicForm extends React.Component {
 
           <Form.Input fluid label="Campaign Duration" name="duration" type="number" width={5} value={duration} onChange={this.handleChange} required />
 
-          <h5>
-            Due Date:
-            {Date()}
-          </h5>
+          <h5>Due Date: {dueDate}</h5>
 
           <Form.Button type="submit" color="green" onClick={this.handleClick}>
             Save & Continue

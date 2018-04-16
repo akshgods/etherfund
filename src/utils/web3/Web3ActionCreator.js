@@ -2,6 +2,7 @@ import { web3, getWeb3 } from "./getWeb3";
 import EtherFund from "./contracts/EtherFund.json"
 import bytecode from "./contracts/bytecode"
 import { updateCampaign } from "../../app/campaign/formActionCreator"
+import { putRequest } from "../../utils/data/API";
 
 export function InitiateWeb3() {
   return dispatch => {
@@ -45,6 +46,36 @@ export function deployContract(options, token) {
           // instance with the new contract address
           dispatch(updateCampaign(options[1], { contractAddress: newContractInstance.options.address }, token));
         });
+    })
+  }
+}
+
+export function ContributeContract(id, address, amount, token) {
+  return dispatch => {
+    dispatch(web3ContributeToContractStart());
+    const etherFundContract = new web3.eth.Contract(EtherFund.abi);
+    const value = web3.utils.toWei(amount.toString(), "ether");
+    web3.eth.getAccounts().then(res => {
+      etherFundContract.options.address = address;
+      etherFundContract.options.from = res[0];
+      etherFundContract.methods.contribute().send({
+        from: res[0],
+        value: value
+      })
+      .then(receipt => {
+        dispatch(web3ContributeToContractSuccess(receipt));
+        etherFundContract.methods.getBackerCount().call({}, (err, res) =>{
+          console.log(res);
+        })
+        const url = "/api/item/fund/" + id;
+        const data = {
+          contractAddress: address
+        };
+        putRequest(url, data, token)
+        .then(res => {
+          dispatch(updateCampaignDatabase(res));
+        })
+      })
     })
   }
 }
@@ -95,5 +126,27 @@ export const web3DeployContract = address => {
     type: 'WEB3_CONTRACT_DEPLOYED',
     payload: address,
     isLoading: false
+  }
+}
+
+export const web3ContributeToContractStart = () => {
+  return {
+    type: 'CAMPAIGN_CONTRIBUTE_START',
+    posting: true
+  }
+}
+
+export const web3ContributeToContractSuccess = data => {
+  return {
+    type: 'CAMPAIGN_CONTRIBUTE_SUCCESS',
+    payload: data,
+    posting: false
+  }
+}
+
+export const updateCampaignDatabase = data => {
+  return {
+    type: 'ITEMS_DATABASE_UPDATE_SUCCESS',
+    payload: data
   }
 }

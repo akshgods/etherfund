@@ -3,7 +3,8 @@ const initialState = {
   loading: false,
   error: null,
   itemCount: 0,
-  itemFilter: "all"
+  itemFilter: "all",
+  pending: false
 };
 
 export default function exploreReducer(state = initialState, action) {
@@ -14,6 +15,12 @@ export default function exploreReducer(state = initialState, action) {
       return { ...state, loading: false, items: action.payload.items };
     case "FETCH_ITEMS_ERROR":
       return { ...state, loading: false, error: action.payload.error };
+    case "CAMPAIGN_CONTRIBUTE_START":
+      return { ...state, pending: true };
+    case "CAMPAIGN_CONTRIBUTE_SUCCESS":
+      return { ...state, pending: false, receipt: action.payload };
+    case "ITEMS_DATABASE_UPDATE_SUCCESS":
+      return { ...state, receipt: action.payload.data };
     default:
       return state;
   }
