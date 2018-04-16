@@ -3,6 +3,7 @@ import EtherFund from "./contracts/EtherFund.json"
 import bytecode from "./contracts/bytecode"
 import { updateCampaign } from "../../app/campaign/formActionCreator"
 import { putRequest } from "../../utils/data/API";
+import { fetchItems } from "../../app/explore/exploreActionCreator";
 
 export function InitiateWeb3() {
   return dispatch => {
@@ -64,9 +65,8 @@ export function ContributeContract(id, address, amount, token) {
       })
       .then(receipt => {
         dispatch(web3ContributeToContractSuccess(receipt));
-        etherFundContract.methods.getBackerCount().call({}, (err, res) =>{
-          console.log(res);
-        })
+        etherFundContract.methods.contributions(1).call()
+          .then(res => console.log(res))
         const url = "/api/item/fund/" + id;
         const data = {
           contractAddress: address
@@ -74,6 +74,7 @@ export function ContributeContract(id, address, amount, token) {
         putRequest(url, data, token)
         .then(res => {
           dispatch(updateCampaignDatabase(res));
+          dispatch(fetchItems())
         })
       })
     })
