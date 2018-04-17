@@ -1,20 +1,10 @@
 import React from 'react'
-import { Header, Container } from 'semantic-ui-react'
+import { Header, Container, Grid, Image } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const HomeHeading = ({ mobile }) => (
   <Container id="jumbotron">
-    <Header
-      as="h1"
-      content="Find, Fund and Have Fun"
-      inverted
-      style={{
-        fontSize: mobile ? "1em" : "3em",
-        fontWeight: "normal",
-        marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em"
-      }}
-    />
+    <Image id="bigLogo" src="./static/images/logo.png"/>
     <Header
       as="h2"
       inverted
@@ -25,7 +15,20 @@ const HomeHeading = ({ mobile }) => (
       }}
     >
       <p>Blockchain based crowd funding platform</p>
-      <p>Be part of the future, Be a backer and Get rewards</p>
+      <p>Be part of the future, Be a backer.</p>
+      <Grid>
+        <Grid.Row columns={3}>
+          <Grid.Column>
+            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+          </Grid.Column>
+          <Grid.Column>
+            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+          </Grid.Column>
+          <Grid.Column>
+            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Header>
   </Container>
 );

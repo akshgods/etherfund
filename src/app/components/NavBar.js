@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import UserProfile from './UserProfile'
-import { Menu, Container } from 'semantic-ui-react'
+import { Menu, Container, Image } from 'semantic-ui-react'
 
 const NavBar = props => (
   <Menu
@@ -11,7 +11,11 @@ const NavBar = props => (
     borderless
   >
     <Container>
-      <Menu.Item as="a" header id="logo" content="Etherfund" />
+      <Menu.Header id="logo">
+        <Image
+          src={props.fixed ? "./static/images/logo.png" : "./static/images/logo-inverted.png"}
+        />
+      </Menu.Header>
       <Link
         className={`item ${props.active === "home" ? "active" : ""}`}
         to="/"

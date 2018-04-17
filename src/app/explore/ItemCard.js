@@ -25,7 +25,7 @@ const ItemCard = props => {
           <span>{description}</span>
         </Card.Meta>
         <Card.Description>
-          <Progress percent={ parseInt(raised * 100 / target, 10) } indicating progress>
+          <Progress percent={ parseInt(raised * 100 / target, 10) } indicating>
             <div style={{ textAlign: "left" }}>{`${raised} ${currency} raised`}</div>
           </Progress>
         </Card.Description>
