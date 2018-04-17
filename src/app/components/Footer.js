@@ -6,7 +6,6 @@ const Footer = props => (
       fixed={props.fixed ? "bottom" : null}
       style={{marginTop: props.fixed ? '1em' : '30em'}}
       borderless
-      fitted
       size="tiny"
     >
       <Menu.Item>

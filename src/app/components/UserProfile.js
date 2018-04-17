@@ -6,6 +6,8 @@ import { Modal, Button, Dropdown } from "semantic-ui-react";
 import { logout } from "../user/userActionCreator";
 import jwt from "jsonwebtoken";
 import config from "../../utils/config";
+import history from "../../utils/history"
+
 
 const mapStateToProps = state => ({
   isLogin: state.auth.isLogin,
@@ -25,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
 class UserProfile extends React.Component {
   handleClick = () => {
     this.props.onLogoutClick();
+    history.push("/");
   };
 
   componentDidMount = () => {

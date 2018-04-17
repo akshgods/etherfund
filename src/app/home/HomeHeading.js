@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Container, Grid, Image } from 'semantic-ui-react'
+import { Header, Container, Grid, Image, Icon } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const HomeHeading = ({ mobile }) => (
@@ -17,24 +17,42 @@ const HomeHeading = ({ mobile }) => (
       <p>Blockchain based crowd funding platform</p>
       <p>Be part of the future, Be a backer.</p>
       <Grid style={{ margin: "2em" }}>
-        <Grid.Row columns={3}>
+        <Grid.Row centered columns={6}>
           <Grid.Column>
-            <Image
-              rounded
-              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
-            />
+            <Header
+              as='h2'
+              inverted
+              icon
+              textAlign="center">
+              <Icon name='cubes' circular />
+              <Header.Content>
+                Decentralized
+              </Header.Content>
+            </Header>
           </Grid.Column>
           <Grid.Column>
-            <Image
-              rounded
-              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
-            />
+            <Header
+              as='h2'
+              inverted
+              icon
+              textAlign="center">
+              <Icon name='linkify' circular />
+              <Header.Content>
+                Trusted
+              </Header.Content>
+            </Header>
           </Grid.Column>
           <Grid.Column>
-            <Image
-              rounded
-              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
-            />
+            <Header
+              as='h2'
+              inverted
+              icon
+              textAlign="center">
+              <Icon name='pied piper hat' circular />
+              <Header.Content>
+                Innovative
+              </Header.Content>
+            </Header>
           </Grid.Column>
         </Grid.Row>
       </Grid>
