@@ -29,7 +29,6 @@ export function updateCampaign(id, data, token) {
     return putRequest(url, data, token)
       .then(response => {
         dispatch(AddCampaignContract(data));
-        dispatch(resetForm());
       })
       .catch(error => dispatch(putCampaignError(error)));
   }

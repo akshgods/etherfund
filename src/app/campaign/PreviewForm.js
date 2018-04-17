@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Button, Icon, Header, Table } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ItemMain from "../explore/ItemMain"
-import { postCampaign } from "./formActionCreator";
+import { postCampaign, resetForm } from "./formActionCreator";
 import { deployContract } from "../../utils/web3/Web3ActionCreator";
 
 const mapStateToProps = state => ({
@@ -22,6 +22,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onDeployContract(data, token) {
     dispatch(deployContract(data, token));
+  },
+  onReset() {
+    dispatch(resetForm());
   }
 });
 
@@ -39,6 +42,10 @@ class PreviewForm extends React.Component {
     this.props.onDeployContract(initOption, this.props.token);
   }
 
+  handleReset = () => {
+    this.props.onReset();
+  }
+
   render() {
     const status = this.props.postStatus;
     const contractAddress = this.props.campaignAddress;
@@ -47,6 +54,7 @@ class PreviewForm extends React.Component {
     if(status === "deployed") {
       return <Container textAlign="left">
           <Header as="h2" content="Contract Deployment Success!" subheader={"Congratulations! Your smart contract is created. Contract Address: " + contractAddress} />
+          <Button primary onClick={this.handleReset}>OK</Button>
         </Container>;
     }
 

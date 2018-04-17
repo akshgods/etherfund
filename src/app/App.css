@@ -22,11 +22,6 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 #jumbotron {
   padding: 3em 0 3em;
   margin-bottom: 3em;
@@ -45,6 +40,10 @@
 
 #bigLogo {
   margin: 3em auto;
+}
+
+#footerImg {
+  height: 25px;
 }
 
 .homeContent {

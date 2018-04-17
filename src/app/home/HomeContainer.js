@@ -5,6 +5,8 @@ import { InitiateWeb3 } from "../../utils/web3/Web3ActionCreator";
 import { Visibility, Segment } from 'semantic-ui-react'
 import HomeHeading from './HomeHeading'
 import NavBar from '../components/NavBar'
+import Footer from "../components/Footer";
+
 
 class HomeContainer extends React.Component {
   state = {}
@@ -30,6 +32,7 @@ class HomeContainer extends React.Component {
           </Segment>
         </Visibility>
         {children}
+        <Footer fixed={fixed}/>
       </div>
     )
   }

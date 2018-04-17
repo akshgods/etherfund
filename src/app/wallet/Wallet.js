@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import { Input, Button, Statistic, Grid, Modal, Message, Segment, Container } from "semantic-ui-react";
 import { web3 } from "../../utils/web3/getWeb3"
 import { web3GetBalance, web3SendTransaction, web3GetAccount } from "../../utils/web3/Web3ActionCreator";
+import Footer from "../components/Footer";
 
 const mapStateToProps = state => ({
   balance: state.web3.balance,
@@ -121,6 +122,7 @@ class Wallet extends React.Component {
             </Segment>
           </Grid>
         </Container>
+        <Footer fixed={true}/>
       </div>;
   }
 }

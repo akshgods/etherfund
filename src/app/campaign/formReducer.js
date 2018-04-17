@@ -61,7 +61,7 @@ export default function exploreReducer(state = initialState, action) {
       return { ...state, items: { ...state.items, ...action.payload.items } };
 
     case "RESET_FORM":
-      return { ...state, items: { ...initialState.items }, images: { ...initialState.images }, imageStatus: "empty" };
+      return { ...initialState };
 
     default:
       return state;
