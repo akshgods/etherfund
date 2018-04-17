@@ -5,17 +5,18 @@ import { Menu, Container, Image } from 'semantic-ui-react'
 
 const NavBar = props => (
   <Menu
+    style={props.fixed ? {} : {marginBottom : "0"}}
     fixed={props.fixed ? "top" : null}
     inverted={!props.fixed}
     secondary={!props.fixed}
     borderless
   >
     <Container>
-      <Menu.Header id="logo">
+      <Menu.Item id="logo">
         <Image
           src={props.fixed ? "./static/images/logo.png" : "./static/images/logo-inverted.png"}
         />
-      </Menu.Header>
+      </Menu.Item>
       <Link
         className={`item ${props.active === "home" ? "active" : ""}`}
         to="/"

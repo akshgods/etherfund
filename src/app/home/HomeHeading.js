@@ -3,8 +3,8 @@ import { Header, Container, Grid, Image } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const HomeHeading = ({ mobile }) => (
-  <Container id="jumbotron">
-    <Image id="bigLogo" src="./static/images/logo.png"/>
+  <Container id="jumbotron" fluid>
+    <Image id="bigLogo" src="./static/images/logo.png" />
     <Header
       as="h2"
       inverted
@@ -16,16 +16,25 @@ const HomeHeading = ({ mobile }) => (
     >
       <p>Blockchain based crowd funding platform</p>
       <p>Be part of the future, Be a backer.</p>
-      <Grid>
+      <Grid style={{ margin: "2em" }}>
         <Grid.Row columns={3}>
           <Grid.Column>
-            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+            <Image
+              rounded
+              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
+            />
           </Grid.Column>
           <Grid.Column>
-            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+            <Image
+              rounded
+              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
+            />
           </Grid.Column>
           <Grid.Column>
-            <Image src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png" />
+            <Image
+              rounded
+              src="http://www.pixedelic.com/themes/geode/demo/wp-content/uploads/sites/4/2014/04/placeholder4.png"
+            />
           </Grid.Column>
         </Grid.Row>
       </Grid>
