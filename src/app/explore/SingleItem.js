@@ -8,7 +8,8 @@ import { ContributeContract } from "../../utils/web3/Web3ActionCreator";
 
 const mapStateToProps = state => ({
   items: state.items,
-  token: state.auth.token
+  token: state.auth.token,
+  isLogin: state.auth.isLogin
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -39,6 +40,8 @@ class SingleItem extends React.Component {
       return item.id === this.props.match.params.id;
     });
 
+    const isLogin = this.props.isLogin
+
     const pending = this.props.items.pending
     const { amount } = this.state;
 
@@ -54,7 +57,7 @@ class SingleItem extends React.Component {
           </Container>
           <ItemMain
             {...item[0]}
-            demo={false}
+            demo={isLogin ? false : true}
             onChange={this.handleChange}
             value={amount}
             loading={pending}

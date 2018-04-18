@@ -14,7 +14,7 @@ const NavBar = props => (
     <Container>
       <Menu.Item id="logo">
         <Image
-          src={props.fixed ? "./static/images/logo.png" : "./static/images/logo-inverted.png"}
+          src={props.fixed ? "/static/images/logo.png" : "/static/images/logo-inverted.png"}
         />
       </Menu.Item>
       <Link

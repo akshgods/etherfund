@@ -12,7 +12,7 @@ const Footer = props => (
         <Image src='/static/images/logo_horizontal_on_white.png' id="footerImg" />
       </Menu.Item >
       <Menu.Item position="right" name='github' icon="github" href='https://github.com/lichen777' target='_blank'/>
-      <Menu.Item name='LinkedIn' icon="linkedin square" href='https://www.linkedin.com/in/chenli777/' target='_blank'/>
+      <Menu.Item name='LinkedIn' icon="linkedin" href='https://www.linkedin.com/in/chenli777/' target='_blank'/>
       <Menu.Item position="right">
         <span>© 2018 Chen Li All Rights Reserved</span>
       </Menu.Item>

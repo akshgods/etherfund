@@ -21,12 +21,12 @@ const images = [
 const Marketing = () => (
   <Container>
     <Header style={{ color: "#2b5fa7" }} as="h1" textAlign="left">
-      Featured
+      FEATURED
     </Header>
     <ImageGallery autoplay={true} showFullscreenButton={false} showThumbnails={false} showBullets={true} items={images} />
     <Divider section hidden />
     <Header style={{ color: "#2b5fa7" }} as="h1" textAlign="left">
-      Trending
+      TRENDING
     </Header>
     <Grid>
       <Grid.Row columns={3}>

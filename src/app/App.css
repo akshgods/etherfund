@@ -26,7 +26,7 @@
 #jumbotron {
   padding: 3em 0 3em;
   margin-bottom: 3em;
-  background-image: url("/static/images/background3.jpg");
+  background-image: url("/static/images/background.jpg");
   background-color: transparent;
   background-attachment: fixed;
   background-size : cover;
@@ -58,4 +58,8 @@
 
 .down {
   padding: 8.5px;
+}
+
+a {
+  color: black;
 }
