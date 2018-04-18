@@ -50,7 +50,7 @@ const About = () => (
         </Grid>
       </Container>
     </div>
-    <Footer fixed={true} />
+    <Footer fixed={false} />
   </div>
 );
 
