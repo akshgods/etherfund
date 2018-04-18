@@ -1,6 +1,6 @@
 import Web3 from "web3";
 
-export const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+export const web3 = new Web3(Web3.givenProvider || "https://open-private.herokuapp.com/");
 
 export function getWeb3() {
   return new Promise(function(resolve, reject) {
