@@ -37,15 +37,35 @@ const About = () => (
           <Grid.Row>
             <Grid.Column>
               <Header as="h2" icon>
-                <a className="ic" href="https://github.com/lichen777">
+                <a
+                  className="ic"
+                  href="https://github.com/lichen777"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon name="github square" />
                 </a>
               </Header>
             </Grid.Column>
             <Grid.Column>
               <Header as="h2" icon>
-                <a className="ic" href="https://www.linkedin.com/in/chenli777/">
+                <a
+                  className="ic"
+                  href="https://www.linkedin.com/in/chenli777/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon name="linkedin square" />
+                </a>
+              </Header>
+            </Grid.Column>
+            <Grid.Column>
+              <Header as="h2" icon>
+                <a
+                  className="ic"
+                  href="mailto:lchen139@gmail.com"
+                >
+                  <Icon name="mail square" />
                 </a>
               </Header>
             </Grid.Column>

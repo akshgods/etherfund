@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemMain from './ItemMain'
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import { Link } from 'react-router-dom'
 import { Container, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
@@ -64,6 +65,7 @@ class SingleItem extends React.Component {
             onClick={() => this.handleBack(item[0].id, item[0].contractAddress)}
           />
         </Container>
+        <Footer fixed={true}/>
       </div>
     );
   }
