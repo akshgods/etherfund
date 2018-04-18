@@ -12,7 +12,12 @@ const About = () => (
           HOW IT WORKS
         </Header>
         <Divider hidden />
-        <Image rounded centered style={{width: "55%"}} src="/static/images/Diagram.png" />
+        <Image
+          rounded
+          centered
+          style={{ width: "55%" }}
+          src="/static/images/Diagram.png"
+        />
         <Divider section hidden />
         <Divider section hidden />
         <Header style={{ color: "#2b5fa7" }} as="h1" textAlign="left">
@@ -24,24 +29,22 @@ const About = () => (
             src="https://avatars0.githubusercontent.com/u/9433422?s=460&v=4"
           />{" "}
           Chen Li
-          <Header.Subheader style={{padding: "1em 0"}}>
-            A Full-Stack Engineer - Javascript, NodeJS, React/Redux,
-            Blockchain
+          <Header.Subheader style={{ padding: "1em 0" }}>
+            A Full-Stack Engineer - Javascript, NodeJS, React/Redux, Blockchain
           </Header.Subheader>
         </Header>
         <Grid columns={10}>
           <Grid.Row>
             <Grid.Column>
               <Header as="h2" icon>
-                <a href="https://github.com/lichen777">
+                <a className="ic" href="https://github.com/lichen777">
                   <Icon name="github square" />
                 </a>
               </Header>
             </Grid.Column>
             <Grid.Column>
               <Header as="h2" icon>
-                <a
-                  href="https://www.linkedin.com/in/chenli777/">
+                <a className="ic" href="https://www.linkedin.com/in/chenli777/">
                   <Icon name="linkedin square" />
                 </a>
               </Header>

@@ -4,7 +4,7 @@ import { Menu, Image } from 'semantic-ui-react'
 const Footer = props => (
   <Menu
       fixed={props.fixed ? "bottom" : null}
-      style={{marginTop: props.fixed ? '1em' : '30em'}}
+      style={{marginTop: props.fixed ? '1em' : '10em'}}
       borderless
       size="tiny"
     >
