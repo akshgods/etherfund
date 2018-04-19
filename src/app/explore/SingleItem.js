@@ -49,8 +49,8 @@ class SingleItem extends React.Component {
     return (
       <div>
         <NavBar active="explore" fixed={true} />
-        <Container textAlign="left" style={{ paddingTop: "5em" }}>
-          <Container textAlign="left" style={{ paddingBottom: "1em" }}>
+        <Container textAlign="left" style={{ padding: "6em 0" }}>
+          <Container textAlign="left" style={{ paddingBottom: "2em" }}>
             <Link to="/explore">
               <Icon name="long arrow left" />
               {"Back to Main Page"}
