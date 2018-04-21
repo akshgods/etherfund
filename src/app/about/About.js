@@ -113,9 +113,9 @@ class About extends React.Component {
                         </CopyToClipboard>
                       </Segment>
                       <Segment>
-                        <Header as="h4">3. Import the Private Key to test EtherFund blockchain Dapp.</Header>
+                        <Header as="h4">3. Import the Private Key for EtherFund blockchain Dapp.</Header>
                         <p><strong>Please note: Never share your private key in real life.</strong></p>
-                        <p>But we would like to share one private key for FREE so you can test the application!</p>
+                        <p>But we would like to share one private key for FREE so you can play with this application!</p>
                         <p>Import a new account by pasting the private key below. And you can see your balance.</p>
                         <CopyToClipboard text={"4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d"}>
                           <Button compact size="tiny">Copy private key</Button>
@@ -123,7 +123,7 @@ class About extends React.Component {
                       </Segment>
                       <Segment>
                         <Header as="h4">4. Check Available Accounts</Header>
-                        <p>Use one of the following accounts as receipient or beneficiary for testing.</p>
+                        <p>Use one of the following accounts as receipient or beneficiary.</p>
                         <p>You can check the balance for all accounts here:</p>
                         <p><strong>TEST MODE:</strong></p>
                         <Button compact size="tiny" onClick={shown ? null : this.showAccount}>Show Accounts</Button>
